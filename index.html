@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <script src="javaTeste.js"></script>
+    <title>JS</title>
+</head>
+
+<body>
+    <div>
+        <h2>Aqui é JS</h2>
+    </div>
+
+
+    <h3>Formulário de Inscrição:</h3>
+    <table>
+        <h1>Calculadora fotovoltaica</h1>
+        <h3>O CSS vem depois</h3>
+
+
+
+
+
+        <h2>1. Local com rede elétrica?</h2>
+        <div class="table-responsive">
+            <table class="table">
+
+                <select name="redeEletrica" id="redeEletrica" on-Change="combo(this, 'box)">
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </table>
+        </div>
+        <div>
+
+            <h2>2.Qual tipo de local?</h2>
+            <div>
+                <select name="local" id="local" on-Change="combo(this, 'box)">
+                    <option value="0" selected>--escolha--</option>
+                    <option value="casa">casa</option>
+                    <option value="empresa">empresa</option>
+                    <option value="outro">outro</option>
+                </select>
+                <hr>
+            </div>
+
+
+
+
+
+
+            <h2>3.Local da instalação</h2>
+            <h3>Coletando Dados de Cep de uma API</h3>
+            <label>CEP:</label><br>
+            <input type="text" id="cep" name="cep" style="width:300px;" value="">
+            <button onclick="fazerRequisicao();">Consultar</button>
+            <hr />
+            <label>Localidade:</label><br>
+            <div id="localidade"></div>
+
+            <script>
+                function fazerRequisicao() {
+                    var cep = document.getElementById("cep").value;
+                    if (cep.length > 7) {
+                        var urlApi = "https://viacep.com.br/ws/" + cep + "/json/";
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.open("GET", urlApi, false);
+                        xhttp.send();//A execução do script para aqui até a requisição retornar do servidor
+                        var retorno = JSON.parse(xhttp.responseText);
+                        console.log("retorno da API: ", xhttp.responseText);
+                        console.log("cep: ", retorno.cep);
+                        console.log("localidade: ", retorno.localidade);
+                        console.log("uf: ", retorno.uf);
+                        document.getElementById("localidade").innerHTML = retorno.localidade + "/" + retorno.uf;
+                    } else {
+                        alert('Ops! Cep informado é inválido, por favor, verifique novamente.');
+                    }
+                }
+            </script>
+
+    </table>
+
+
+</body>
+
+</html>
