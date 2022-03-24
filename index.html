@@ -34,9 +34,8 @@
         <div class="table-responsive">
             <table class="table">
 
-                <select name="redeEletrica" id="redeEletrica" on-Change="combo(this, 'box)">
-                    <option value="0">--escolha--</option>
-                    <option value="sim">Sim</option>
+                <select name="redeEletrica" id="redeEletrica">
+                    <option value="sim" selected>Sim</option>
                     <option value="nao">Não</option>
                 </select>
             </table>
@@ -48,171 +47,211 @@
             <h2>2.Qual tipo de local?</h2>
             <div>
                 <select name="local" id="local" on-Change="combo(this, 'box)">
-                    <option value="0" selected>--escolha--</option>
+
                     <option value="casa">casa</option>
-                    <option value="empresa">empresa</option>
+                    <option value="empresa" selected>empresa</option>
                     <option value="outro">outro</option>
                 </select>
                 <hr>
             </div>
             <!--Aqui no select está sendo nomeado o campo para depois fazer um -->
 
-
-
-
-
-            <h2>3.Local da instalação</h2>
-            <h3>Coletando Dados de Cep de uma API</h3>
-            <label>CEP:</label><br>
-            <input type="text" id="cep" name="cep" style="width:300px;" oninput="fazerRequisicao();" value=""
-                placeholder="CEP da localidade" required=""> <br>
-            <label>Localidade:</label><br>
-            <div id="localidade"></div>
-            <hr />
-
-            <script>
-                function fazerRequisicao() {
-                    var cep = document.getElementById("cep").value;
-                    if (cep.length > 7) {
-                        var urlApi = "https://viacep.com.br/ws/" + cep + "/json/";
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.open("GET", urlApi, false);
-                        xhttp.send();//A execução do script para aqui até a requisição retornar do servidor
-                        var retorno = JSON.parse(xhttp.responseText);
-                        console.log("retorno da API: ", xhttp.responseText);
-                        console.log("cep: ", retorno.cep);
-                        console.log("localidade: ", retorno.localidade);
-                        console.log("uf: ", retorno.uf);
-                        document.getElementById("localidade").innerHTML = retorno.localidade + "/" + retorno.uf;
-                    } else {
-                        document.getElementById("localidade").innerHTML = "cep invalido";
-                    }
-                }
-
-                function resultado() {
-                    exibe =
-
-                        "<div>" +
-                        "<div>investimento</div> <!--1-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>Tamanho do sistema indicado</div> <!--2-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>Potencia instalada</div><!--3-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>economia mensal</div> <!--1-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>Quantidade de módulos</div><!--2-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>Média de produção mensal</div><!--3-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>valor aproximado do investimento</div> <!--1-->" +
-                        "</div>" +
-
-                        "<div>" +
-                        "<div>Área estimada</div><!--2-->" +
-                        "</div>";
-
-
-                    document.getElementById("resultado2").innerHTML = exibe;
-                }
-
-
-
-                function teste() {
-
-
-
-                    document.getElementById("resultado").innerHTML = (
-                        "<h2>testando</h2>"
-                    );
-
-                }
-
-            </script>
-
-
-            <h2>4.Quanto gasta por mês?</h2>
-            <!-- <input type="text" id="gastoMensal" name="gastoMensal" style="width:300px;" value="">
-            <button type="submit" id="enviaFormulario">Consultar</button> -->
-            <label>R$:</label><br>
-            <span class="input-euro left" type="text" id="gastoMensal" name="gastoMensal" style="width:300px;">
-                <input name="contaMes" id="contaMes" type="text" style="width:300px" placeholder="2000" required="" />
-            </span>
-            <hr>
-
-            <h2>5.Qual o valor da tarifa paga ?</h2>
-            <input name="tarifa" id="tarifa" type="text" style="width:300px" placeholder="0,58" required="" />
-            <hr>
-            <h2>Quantos kWp/h são consumidos</h2>
-            <input name="kwpConsumo" id="kwpConsumo" type="text" style="width:300px" placeholder="3.389" required="" />
-            <hr>
-            <div>
-
-                <form action="resultado.html" method="POST" name="formulario">
-
-                    <div class="form-group">
-                        <div class="   col-md-5">
-                            <label>Nome Completo</label>
-                            <input type="text" name="login" class="form-control " placeholder="Nome e Sobrenome"
-                                required="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="   col-md-5">
-                            <label>Telefone de contato</label>
-                            <input type="text" name="login" class="form-control " placeholder="(55) 9 0000-0000"
-                                required="">
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="form-group">
-                        <div class="   col-md-5">
-                            <label>E-MAIL</label>
-                            <input type="text" name="login" class="form-control " placeholder="nome@email.com"
-                                required="">
-                        </div>
-                    </div>
-
-                    <button type="submit">botão</button>
-
-                </form>
-            </div>
-
-            <hr>
-
-            <div>
-
-            </div>
-            <br>
-            <button onclick="resultado()">teste de grid</button>
         </div>
+
+
+
+        <h2>3.Local da instalação</h2>
+        <h3>Coletando Dados de Cep de uma API</h3>
+        <label>CEP:</label><br>
+        <input class="form-control " type="text" id="cep" name="cep" style="width:300px;" oninput="fazerRequisicao();" value=""
+            placeholder="CEP do local" required=""> <br>
+        <label>Localidade:</label><br>
+        <div id="localidade"></div>
+        <hr />
+
+        <script>
+            function fazerRequisicao() {
+                var cep = document.getElementById("cep").value;
+                if (cep.length > 7) {
+                    var urlApi = "https://viacep.com.br/ws/" + cep + "/json/";
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open("GET", urlApi, false);
+                    xhttp.send();//A execução do script para aqui até a requisição retornar do servidor
+                    var retorno = JSON.parse(xhttp.responseText);
+                    console.log("retorno da API: ", xhttp.responseText);
+                    console.log("cep: ", retorno.cep);
+                    console.log("localidade: ", retorno.localidade);
+                    console.log("uf: ", retorno.uf);
+                    document.getElementById("localidade").innerHTML = retorno.localidade + "/" + retorno.uf;
+                } else {
+                    document.getElementById("localidade").innerHTML = "cep invalido";
+                }
+            }
+            console.log(cep)
+
+            function apresentaDados() {
+                exibe =
+
+                    "<div>" +
+                    "<div>investimento</div> <!--1-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Tamanho do sistema indicado</div> <!--2-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Potencia instalada</div><!--3-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>economia mensal</div> <!--1-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Quantidade de módulos</div><!--2-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Média de produção mensal</div><!--3-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>valor aproximado do investimento</div> <!--1-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Área estimada</div><!--2-->" +
+                    "</div>";
+
+
+                document.getElementById("resultado2").innerHTML = exibe;
+            }
+
+            function capturaDados(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
+                var cep = document.getElementById("cep").value;
+                var localidade = document.getElementById("localidade").value;
+                var redeEletrica = document.getElementById("redeEletrica").value; // como saber se é sim ou n o selecionado
+                var local = document.getElementById("local").value;
+                var contaMes = document.getElementById("contaMes").value;
+                var tarifa = document.getElementById("tarifa").value;
+                var kwpConsumo = document.getElementById("kwpConsumo").value;
+                // var nomeCompleto = document.getElementById("nomeCompleto").value;
+                // var telefoneContato = document.getElementById("telefoneContato").value;
+                //var email = document.getElementById("email").value;
+
+                if (cep.length > 7) {
+                    console.log("o cep é " + cep)
+                }
+
+                //  if(localidade === retorno.localidade){
+                //      console.log("A localidade é "+ retorno.localidade)
+                // }
+
+
+                if (redeEletrica === "sim") {
+
+                    console.log("tem rede elétrica")
+                } else {
+                    console.log("Não possui rede elétrica")
+                }
+
+                if (local === "empresa") {
+                    console.log("Rede empresarial.")
+                } else {
+                    console.log("É uma casa")
+                }
+
+                if (contaMes > 0) {
+                    console.log("O valor da conta mensal é " + contaMes)
+                }
+
+                if (tarifa >= 0) {
+                    console.log("O valor da tarifa é " + tarifa)
+                }
+
+                if (kwpConsumo > 0) {
+                    console.log("A média de kwp consumida é " + kwpConsumo)
+                }
+
+                //  if (nomeCompleto != undefined) {
+                //    console.log("Nome do possível contato " + nomeCompleto)
+                //      }
+
+                //  if (telefoneContato <= 11) {
+                //    console.log("telefone do possível contato " + telefoneContato)
+                //}
+
+                //   if (email > 0) {
+                //     console.log("email de contato " + kwpConsumo)
+                //}
+
+            }
+
+        </script>
+
+
+        <h2>4.Quanto gasta por mês?</h2>
+        <!-- <input type="text" id="gastoMensal" name="gastoMensal" style="width:300px;" value="">
+            <button type="submit" id="enviaFormulario">Consultar</button> -->
+        <label>R$:</label><br>
+        <span class="input-euro left" type="text" id="gastoMensal" name="gastoMensal" style="width:300px;">
+            <input class="form-control "name="contaMes" id="contaMes" type="text" style="width:300px" placeholder="2000" required="" />
+        </span>
+        <hr>
+
+        <h2>5.Qual o valor da tarifa paga ?</h2>
+        <input class="form-control" name="tarifa" id="tarifa" type="text" style="width:300px" placeholder="0,58" required="" />
+        <hr>
+        <h2>6.Quantos kWp/h são consumidos</h2>
+        <input class="form-control "name="kwpConsumo" id="kwpConsumo" type="text" style="width:300px" placeholder="3.389" required="" />
+        <hr>
+
+        <div>
+            <form action="resultado.html" method="POST" name="formulario">
+
+                <div class="form-group">
+                    <div class="   col-md-5">
+                        <label>Nome Completo</label>
+                        <input type="nomeCompleto" name="nomeCompleto" class="form-control "
+                            placeholder="Nome e Sobrenome" required="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="   col-md-5">
+                        <label>Telefone de contato</label>
+                        <input type="telefoneContato" name="telefoneContato" class="form-control "
+                            placeholder="(55) 9 0000-0000" required="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="   col-md-5">
+                        <label>E-MAIL</label>
+                        <input type="email" name="email" class="form-control " placeholder="nome@email.com" required="">
+                    </div>
+                </div>
+
+                <button type="submit">botão</button>
+
+            </form>
+        </div>
+
+        <hr>
+
+        <div>
+
+        </div>
+        <br>
+        <button onclick="capturaDados() ">teste de grid</button>
+
 
         <div class='grid-container' id="resultado2" name="resultado2">
 
-
-
         </div>
 
-
-
     </table>
-
 
 </body>
 
