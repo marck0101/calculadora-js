@@ -62,9 +62,13 @@
         <h2>3.Local da instalação</h2>
         <h3>Coletando Dados de Cep de uma API</h3>
         <label>CEP:</label><br>
-        <input class="form-control" type="text" id="cep" name="cep" style="width:300px;" oninput="fazerRequisicao();" value="" placeholder="CEP do local" required=""> <br>
-        <label>Localidade:</label><br>
-        <div id="localidade"></div>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input class="form-control" type="text" id="cep" name="cep" oninput="fazerRequisicao();" value="" placeholder="CEP do local" required=""> <br>
+                <label>Localidade:</label><br>
+                <div id="localidade"></div>
+            </div>
+        </div>
         <hr />
 
         <script>
@@ -192,17 +196,30 @@
         <!-- <input type="text" id="gastoMensal" name="gastoMensal" style="width:300px;" value="">
             <button type="submit" id="enviaFormulario">Consultar</button> -->
         <label>R$:</label><br>
-        <span class="input-euro left" type="text" id="gastoMensal" name="gastoMensal" style="width:300px;">
-            <input class="form-control "name="contaMes" id="contaMes" type="text" style="width:300px" placeholder="2000" required="" />
+        <div class="form-group">
+            <div class="col-md-5">
+                <span class="input-euro left" type="text" id="gastoMensal" name="gastoMensal">
+            <input class="form-control "name="contaMes" id="contaMes" type="text"  placeholder="2000" required="" />
         </span>
+            </div>
+        </div>
         <hr>
 
         <h2>5.Qual o valor da tarifa paga ?</h2>
-        <input class="form-control" name="tarifa" id="tarifa" type="text" style="width:300px" placeholder="0,58" required="" />
+        <div class="form-group">
+            <div class="col-md-5">
+                <input class="form-control" name="tarifa" id="tarifa" type="text" placeholder="0,58" required="" />
+            </div>
+        </div>
         <hr>
+
         <h2>6.Quantos kWp/h são consumidos</h2>
-        <input class="form-control " name="kwpConsumo" id="kwpConsumo" type="text" style="width:300px" placeholder="3.389" required="" />
-        <hr>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input class="form-control " name="kwpConsumo" id="kwpConsumo" type="text" placeholder="3.389" required="" />
+                <hr>
+            </div>
+        </div>
 
         <div>
             <form action="resultado.html" method="POST" name="formulario">
