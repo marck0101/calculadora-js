@@ -8,17 +8,18 @@ function capturaDados(cep, localidade, redeEletrica, local, contaMes, kwpConsumo
     var contaMes = document.getElementById("contaMes").value;
     var tarifa = document.getElementById("tarifa").value;
     var kwpConsumo = document.getElementById("kwpConsumo").value;
-/**/var nomeCompleto = document.getElementById("nomeCompleto").value;
-    var telefoneContato = document.getElementById("telefoneContato").value;
-    var email = document.getElementById("email").value;
+    // var nomeCompleto = document.getElementById("nomeCompleto").value;
+    // var telefoneContato = document.getElementById("telefoneContato").value;
+    //var email = document.getElementById("email").value;
 
-    if (cep.length = 7) {
-        console.log("o cep é" + cep.length)
+    if (cep.length > 7) {
+        console.log("o cep é " + cep)
     }
 
     //  if(localidade === retorno.localidade){
     //      console.log("A localidade é "+ retorno.localidade)
     // }
+
 
     if (redeEletrica === "sim") {
 
@@ -27,9 +28,35 @@ function capturaDados(cep, localidade, redeEletrica, local, contaMes, kwpConsumo
         console.log("Não possui rede elétrica")
     }
 
-    if (contaMes == 0) {
-        console.log("o valor da conta mensal é " + contaMes)
+    if (local === "empresa") {
+        console.log("Rede empresarial.")
+    } else {
+        console.log("É uma casa")
     }
+
+    if (contaMes > 0) {
+        console.log("O valor da conta mensal é " + contaMes)
+    }
+
+    if (tarifa >= 0) {
+        console.log("O valor da tarifa é " + tarifa)
+    }
+
+    if (kwpConsumo > 0) {
+        console.log("A média de kwp consumida é " + kwpConsumo)
+    }
+
+    //  if (nomeCompleto != undefined) {
+    //    console.log("Nome do possível contato " + nomeCompleto)
+    //      }
+
+    //  if (telefoneContato <= 11) {
+    //    console.log("telefone do possível contato " + telefoneContato)
+    //}
+
+    //   if (email > 0) {
+    //     console.log("email de contato " + kwpConsumo)
+    //}
 
     //
     //
