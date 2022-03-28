@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>teste</h1>
+    <label>qual seu nome ?</label> <br>
+    <input type="informacoes" name="informacoes" id="informacoes">
+
+
+    <script>
+        function captaInformacoes(informacoes) {
+            var informacoes = document.getElementById("informacoes").value;
+
+            if (informacoes != "") {
+                alert("Obrigado por aparecer aqui" + informacoes)
+
+            } else {
+                alert("Informe seu nome!")
+            }
+        }
+    </script>
+
+    <button onclick="captaInformacoes()">enviar</button>
+
+
+</body>
+
+</html>
