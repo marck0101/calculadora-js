@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+<body>
+    <script>
+        function picoSistema(){
+            if(x =! 1 ){
+                console.log("potencia do pico do sistema");
+            }
+        }
+
+        function areaEstimada(){
+            if(x =! 1 ){
+                console.log("área estimada do sistema");
+            }
+        }
+
+        function energiaAnual(){
+            if(x =! 1 ){
+                console.log("potencia do pico do sistema");
+            }
+        }
+
+        
+        
+    </script>
+</body>
+
+</html>

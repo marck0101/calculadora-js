@@ -9,9 +9,6 @@
 
     <link rel="stylesheet" href="./css/css.css">
 
-
-
-
 </head>
 
 <body class="container">
@@ -91,46 +88,7 @@
             }
             console.log(cep)
 
-            function apresentaDados() {
-                exibe =
-
-                    "<div>" +
-                    "<div>investimento</div> <!--1-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>Tamanho do sistema indicado</div> <!--2-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>Potencia instalada</div><!--3-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>economia mensal</div> <!--1-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>Quantidade de módulos</div><!--2-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>Média de produção mensal</div><!--3-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>valor aproximado do investimento</div> <!--1-->" +
-                    "</div>" +
-
-                    "<div>" +
-                    "<div>Área estimada</div><!--2-->" +
-                    "</div>";
-
-
-                document.getElementById("resultado2").innerHTML = exibe;
-            }
-
-            function capturaDados(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
+            function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
                 var cep = document.getElementById("cep").value;
                 var localidade = document.getElementById("localidade").value;
                 var redeEletrica = document.getElementById("redeEletrica").value; // como saber se é sim ou n o selecionado
@@ -187,7 +145,42 @@
                 //   if (email > 0) {
                 //     console.log("email de contato " + kwpConsumo)
                 //}
+                exibe =
 
+                    "<div>" +
+                    "<div>investimento</div> <!--1-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Tamanho do sistema indicado</div> <!--2-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Potencia instalada</div><!--3-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>economia mensal</div> <!--1-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Quantidade de módulos</div><!--2-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Média de produção mensal</div><!--3-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>valor aproximado do investimento</div> <!--1-->" +
+                    "</div>" +
+
+                    "<div>" +
+                    "<div>Área estimada</div><!--2-->" +
+                    "</div>";
+
+
+                document.getElementById("resultado2").innerHTML = exibe;
             }
         </script>
 
@@ -247,10 +240,6 @@
 
 
 
-
-
-
-
                 <!--   <button type="submit">botão</button> -->
 
             </form>
@@ -262,7 +251,7 @@
 
         </div>
         <br>
-        <button onclick="capturaDados() ">teste de grid</button>
+        <button onclick="captApresenta() ">teste de grid</button>
 
 
         <div class='grid-container' id="resultado2" name="resultado2">
