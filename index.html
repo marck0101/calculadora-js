@@ -16,6 +16,9 @@
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="./css/cssSite.css">
     <!--chama as conf. do css de outra pag-->
 
+    <link href="js/javaScript.js">
+    </link>
+
     <!-- <link rel="stylesheet" media="screen and (min-width: 900px)" href="./css/meuCss.css" />
     Aqui vai ser puxado conf de responsividade -->
 
@@ -145,7 +148,6 @@
 
 
 </head>
-
 
 
 <body style="position: relative; min-height: 100%; top: 0px;">
@@ -460,12 +462,11 @@
                 <div class="borda-container">
                     <div class="borda">
                         <table class="table">
-                            <h3>Simulador de Geração Fotovoltaica</h3>
-                            <h5>Formulário de Inscrição:</h5>
+
                             <div class="borda">
                                 <h3>1. Local com rede elétrica?</h3>
                                 <div class="table-responsive">
-                                    <select name="redeEletrica" id="redeEletrica">
+                                    <select name="redeEletrica" id="redeEletrica" class="btn btn-danger">
                                         <option value="sim" selected>Sim</option>
                                         <option value="nao">Não</option>
                                     </select>
@@ -477,7 +478,8 @@
                             <div class="borda">
                                 <h5>2.Qual tipo de local?</h5>
                                 <div>
-                                    <select name="local" id="local" on-Change="combo(this, 'box)">
+                                    <select name="local" id="local" class="btn btn-danger"
+                                        on-Change="combo(this, 'box)">
                                         <option value="empresa" selected>empresa</option>
                                         <option value="outro">outro</option>
                                     </select>
@@ -625,7 +627,17 @@
 
 
                                         document.getElementById("resultado2").innerHTML = exibe;
+                                        consumoMensal();
                                     }
+                                }
+                                function consumoMensal() {
+                                    var contaMes = document.getElementById(contaMes).value;
+                                    var tarifa = document.getElementById(tarifa).value;
+
+                                    if ((contaMes != 0) && (tarifa != 0)) {
+                                        console.log("A média do consumo mensal é " + contaMes / tarifa)
+                                    }
+
                                 }
                             </script>
 
@@ -638,7 +650,7 @@
                                     <div class="col-md-5">
                                         <span class="input-euro left" type="text" id="gastoMensal" name="gastoMensal">
                                             <input class="form-control " name="contaMes" id="contaMes" type="text"
-                                                placeholder="2000" required />
+                                                placeholder="2000" value="500" />
                                         </span>
                                     </div>
                                 </div>
@@ -649,7 +661,7 @@
                                 <div class="form-group">
                                     <div class="col-md-5">
                                         <input class="form-control" name="tarifa" id="tarifa" type="text"
-                                            placeholder="0.58" required />
+                                            placeholder="0.58" value="10" />
                                     </div>
                                 </div>
                             </div>
@@ -658,7 +670,7 @@
                                 <div class="form-group">
                                     <div class="col-md-5">
                                         <input class="form-control " name="kwpConsumo" id="kwpConsumo" type="text"
-                                            placeholder="3.389" required />
+                                            placeholder="3.389" value="3.389" />
                                     </div>
                                 </div>
                             </div>
@@ -671,7 +683,8 @@
                                         <div class="   col-md-5">
                                             <label>Nome Completo</label>
                                             <input type="nomeCompleto" name="nomeCompleto" id="nomeCompleto"
-                                                class="form-control " placeholder="Nome e Sobrenome" required>
+                                                class="form-control " placeholder="Nome e Sobrenome"
+                                                value="Nome e Sobrenome">
                                         </div>
                                     </div>
 
@@ -679,7 +692,8 @@
                                         <div class="col-md-5">
                                             <label>Telefone de contato</label>
                                             <input type="telefoneContato" name="telefoneContato" id="telefoneContato"
-                                                class="form-control " placeholder="(55) 9 0000-0000" required>
+                                                class="form-control " placeholder="(55) 9 0000-0000"
+                                                value="(55) 9 0000-0000">
                                         </div>
                                     </div>
 
@@ -687,7 +701,7 @@
                                         <div class="  col-md-5">
                                             <label>E-MAIL</label>
                                             <input type="email" name="email" id="email" class="form-control "
-                                                placeholder="nome@email.com" required>
+                                                placeholder="nome@email.com" value="nome@email.com">
                                         </div>
                                     </div>
                                     <!-- <button class="btn btn-danger" onclick="captApresenta() ">Enviar</button> -->
@@ -696,7 +710,7 @@
                             </div>
                             <br>
                             <div>
-                                <button class="btn btn-primary btn-lg btn-block" onclick="captApresenta() ">Simule
+                                <button class="btn btn-secondary btn-lg btn-block" onclick="captApresenta() ">Simule
                                     Agora</button>
                                 <!--O botão vai estar atribuido a 3 funções-->
                                 <!--primeiro abrir um grid com os cálculos que foi apresentado com um orçamento para o cliente-->
