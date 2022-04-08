@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="viewport" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json para variavel</title>
+    <script href="./script.js"></script>
+</head>
+
+<body>
+    <script>
+        let colabJSON = '{"colaboradores":[' +
+            '{"nome":"Marcos", "idade":"22", "profissão":"Analista"},' +
+            '{"nome":"Henrique", "idade":"22", "profissão":"Analista"},' +
+            '{"nome":"Vitor", "idade":"22", "profissão":"Analista"},' +
+            '{"nome":"Vitoria", "idade":"22", "profissão":"Analista"},' +
+            ']}'
+
+        //dentro do parse() eu preciso informar onde está o meu json
+        let c_obj = JSON.parse(colabJSON)
+        // o parse é quando eu tenho as informações em json e quero converter em um texto, ou um objeto literal no caso
+        //stringfy converte o texto em json
+
+        console.log(c_obj)
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
