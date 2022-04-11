@@ -1,4 +1,4 @@
-[
+const irradiacao = [
     {
         "ID": 30670,
         "LON": -68.7463,

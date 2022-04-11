@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="viewport" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script href="../irradiacao/json"></script>
+    <title>Json para variavel</title>
+</head>
+
+<body>
+    <script>
+        function teste() {
+
+
+            // let colabJson = '{"colaboradores": ['+
+            // '{"nome":"Marcos", "idade": 22, "profissão":"Analista"},' +
+            //     '{"nome":"Marcos", "idade": 22, "profissão":"Analista"},' +
+            //     '{"nome":"Marcos", "idade": 22, "profissão":"Analista"}' +
+            //     ']}';
+            //     let testeJson = '{"nome": "testador"}'
+
+            // var c_obj = JSON.parse(irradiacao);
+            // console.log(c_obj);
+
+
+            const json = '{[' +
+                '{"ID;LON;LAT;NAME;CLASS;STATE;ANNUAL;JAN;FEB;MAR;APR;MAY;JUN;JUL;AUG;SEP;OCT;NOV;DEC\r": "30670;-68.7463;-11.0109;Brasiléia;Sede Municipal;ACRE;4675;4376;4504;4284;4782;4276;4517;4713;5181;5192;4972;4866;4440\r"}' +
+                ']}, '
+            console.log(json);
+            console.log(typeof json);
+            //json
+
+        }
+    </script>
+
+    <button onclick="teste()">teste</button>
+    <!-- https://www.youtube.com/watch?v=ziOjvR56qOw&t=64s -->
+
+
+
+
+</body>
+
+</html>
