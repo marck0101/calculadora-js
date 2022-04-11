@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON teste</title>
+    <!-- aqui está chamando os arquivos de outro local do projeto -->
+    <script type="text/javascript" src="./Testejson.js"></script>
+    <script type="text/variáveis--" src="../index.html"></script>
+    <script>
+        // aqui chama o arquivo json que agora é um texto de volta para json
+        const json = JSON.parse(irradiacao);
+        // json.map((item) => {
+        //     //o map vai buscar o item que o teste está carregando, no caso o número e vai printar no console
+        //     console.log
+        //         (
+        //             "NOME MUNICÍPIO: ", item.NAME, "/",
+        //             "ESTADO: ", item.STATE, "/",
+        //             "IRRADIAÇÃO ANUAL", item.ANNUAL
+        //         )
+        // });
+
+    </script>
+</head>
+
+<body>
+    <h1>teste</h1>
+    <script>
+        function capturaDados() {
+            // var irradiacao = document.getElementById("irradiacao").value;
+            // var localidade = document.getElementById("localidade").value;
+            // var uf = document.getElementById("uf").value;
+
+            var irradiacao = 10;
+            var localidade = document.getElementById("localidade").value;
+            var uf = 30;
+
+
+            if (irradiacao != "" && localidade != "" && uf != "")
+                console.log("irradiação: " + irradiacao + "cidade: " + localidade + "estado: " + uf)
+                console.log("localidade: ", retorno.localidade);
+        }
+    </script>
+
+    <button onclick="capturaDados()">capturaDados</button>
+</body>
+
+</html>
