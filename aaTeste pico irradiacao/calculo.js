@@ -16,10 +16,30 @@ function fazerRequisicao() {
         var localidade = document.getElementById("localidade").innerHTML = retorno.localidade;
         console.log("a localidade é: " + localidade);
         irradJson(localidade);
+       
+        teste(localidade);
+
     } else {
         document.getElementById("localidade").innerHTML = "cep invalido";
     }
 }
+
+//A função de irradJson vai buscar a média de irradiação do município setado  
+function irradJson(localidade) {
+    // aqui está chamando os arquivos de outro local do projeto
+    // aqui chama o arquivo 'json' que agora é um texto de volta para json
+    var json = JSON.parse(irradiacao);
+    // o var do município vai armazenar o município do cep que o cliente digitar
+
+    json.map((item) => {
+        // o map vai buscar o item que o teste está carregando, no caso o número e vai printar no
+        if ((item.NAME === localidade)) {
+            console.log("A irradiação anual de", item.NAME, "é: ", item.ANNUAL)
+            // picoSistema();
+        }
+    });
+}
+
 
 //a função captApresenta vai estar capturando todas as informações digitadas pelo usuário e armazenando em variáves
 function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
@@ -123,35 +143,10 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
         "</div>";
 
         document.getElementById("resultado2").innerHTML = exibe;
-
-        // fazerRequisicao();
-
-        consumoMensal();
-        picoSistema(cm);
-        // potenciaInstalada();
-        // areaPesp()
-
     }
 }
 
 
-
-//A função de irradJson vai buscar a média de irradiação do município setado  
-function irradJson(localidade) {
-    // aqui está chamando os arquivos de outro local do projeto
-    // aqui chama o arquivo json que agora é um texto de volta para json
-    var json = JSON.parse(irradiacao);
-    // o var do município vai armazenar o município do cep que o cliente digitar
-    // console.log("o Json é : ", json)
-    // console.log("o Json é : ", json[1].NAME)
-
-    json.map((item) => {
-        // o map vai buscar o item que o teste está carregando, no caso o número e vai printar no
-        if ((item.NAME === localidade)) {
-            console.log("A irradiação anual de", item.NAME, "é: ", item.ANNUAL)
-        }
-    });
-}
 
 
 function consumoMensal() {
@@ -165,26 +160,36 @@ function consumoMensal() {
     if ((contaMes != 0) && (tarifa != 0)) {
         cm = contaMes / tarifa;
         console.log("A media do consumo mensal e " + cm + "kWp");
-        picoSistema(cm);
+        // picoSistema(cm);
     } else {
         alert("insira o valor nos campos");
     }
 }
 
-function picoSistema(cm) {
+function teste(item) {
+    console.log("AAAA teste", item)
+    if (item != 0) {
+        console.log("irradiação anual do municipio AQUI:", item.ANNUAL)
+    }
+
+}
+
+
+function picoSistema(cm, item) {
+    console.log("AQUI ESTAMOS DENTRO DO PICO SISTEMA")
+
     if (cm != 0) {
         // var consumoMensal = 100;
         var potenciaPico = 1000;
         var eficienciaSistema = 5;
-        var indiceIrradiacao = 0.5;
+        // var indiceIrradiacao = 0.5;
 
-        potenciaPico = cm / (eficienciaSistema * indiceIrradiacao * (365 / 12));
+        potenciaPico = cm / (eficienciaSistema * item.ANNUAL * (365 / 12));
         console.log("o pico do sistema e: " + potenciaPico);
 
-        areaEstimada(potenciaPico);
+        // areaEstimada(potenciaPico);
     }
 }
-
 
 //function areaEstimada() {
 function areaEstimada(potenciaPico) {
@@ -197,19 +202,40 @@ function areaEstimada(potenciaPico) {
     let fatorTelhado = 1.5;
     let local = document.getElementById("local").value;
 
-    if ((potenciaPico != 0) && (local != empresa)) {
+
+    if (local === "empresa") {
+        (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorTelhado));
+        console.log("fator telhado com area estimada: " + areaSistema)
+    } else {
         (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorSolo));
         console.log("fator solo com area estimada: " + areaSistema)
-    } else if ((potenciaPico != 0) && (local === empresa)) {
-        (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorTelhado));
-        console.log("Aqui acessou")
-        console.log("fator telhado com area estimada: " + areaSistema)
     }
+    // if ((potenciaPico != 0) && (local != empresa)) {
+    //     (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorSolo));
+    //     console.log("fator solo com area estimada: " + areaSistema)
+    // } else if ((potenciaPico != 0) && (local === empresa)) {
+    //     (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorTelhado));
+    //     console.log("Aqui acessou")
+    //     console.log("fator telhado com area estimada: " + areaSistema)
+    // }
 
 }
 
-function energiaAnual() {
-    if (x = !1) {
-        console.log("potencia do pico do sistema");
-    }
+
+function maeFunction() {
+    // aqui está chamando os arquivos de outro local do projeto
+    // aqui chama o arquivo 'json' que agora é um texto de volta para json
+    var json = JSON.parse(irradiacao);
+    // o var do município vai armazenar o município do cep que o cliente digitar
+
+    json.map((item) => {
+        // o map vai buscar o item que o teste está carregando, no caso o número e vai printar no
+
+        console.log("A irradiação anual de", item.NAME, "é: ", item.ANNUAL)
+        teste(item.ANNUAL)
+
+    });
+    consumoMensal();
+    picoSistema();
+    areaEstimada();
 }

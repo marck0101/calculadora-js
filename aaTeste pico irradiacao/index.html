@@ -4,10 +4,11 @@
 <head>
     <title>Area estimada do sistema</title>
     <script src="calculo.js"></script>
+    <script src="Testejson.js"></script>
     <style>
         .borda {
             text-align: center;
-            border: 2px;
+            border: 2px ;
             margin: 50px;
             margin-right: 20%;
             margin-left: 20%;
@@ -22,6 +23,25 @@
 <body class="borda">
 
     <div class="">
+
+
+        <div class="borda">
+            <h5>3.Local da instalação</h5>
+            <h5>Coletando Dados de Cep de uma API</h5>
+            <label>CEP:</label><br>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <input class="form-control" type="text" id="cep" name="cep" oninput="fazerRequisicao();" value=""
+                        placeholder="CEP do local" required>
+                    <br>
+                    <label>Localidade:</label><br>
+                    <div id="localidade"></div>
+                </div>
+            </div>
+        </div>
+
+        
+
         <div class="borda">
             <h5>Quanto gasta por mes?</h5>
             <!-- <input type="text" id="gastoMensal" name="gastoMensal" style="width:300px;" value="">
@@ -56,7 +76,7 @@
                 </select>
             </div>
         </div>
-        <button onclick="maeFunction()">maeFunction</button>
+        <button onclick="maeFunction()">testar</button>
 </body>
 
 </html>
