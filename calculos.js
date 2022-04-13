@@ -1,3 +1,4 @@
+// se nada funcionar, aqui vai ser colocado as funções
 //aqui vai estar verificando o CEP que o cliente está digitando 
 function fazerRequisicao() {
     var cep = document.getElementById("cep").value;
@@ -12,11 +13,13 @@ function fazerRequisicao() {
         console.log("localidade: ", retorno.localidade);
         console.log("uf: ", retorno.uf);
         document.getElementById("localidade").innerHTML = retorno.localidade + "/" + retorno.uf;
+        var localidade = document.getElementById("localidade").innerHTML = retorno.localidade;
+        console.log("a localidade é: " + localidade);
+        irradJson(localidade);
     } else {
         document.getElementById("localidade").innerHTML = "cep invalido";
     }
 }
-// console.log(cep)
 
 //a função captApresenta vai estar capturando todas as informações digitadas pelo usuário e armazenando em variáves
 function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
@@ -153,18 +156,17 @@ function consumoMensal() {
 
 
 //A função de irradJson vai buscar a média de irradiação do município setado  
-function irradJson() {
+function irradJson(localidade) {
     // aqui está chamando os arquivos de outro local do projeto
-    // <script type="text/javascript" src="./Testejson.js"></script>
     // aqui chama o arquivo json que agora é um texto de volta para json
     var json = JSON.parse(irradiacao);
     // o var do município vai armazenar o município do cep que o cliente digitar
-    var localidade = document.getElementById("localidade").value;
+    // console.log("o Json é : ", json)
+    // console.log("o Json é : ", json[1].NAME)
 
     json.map((item) => {
         // o map vai buscar o item que o teste está carregando, no caso o número e vai printar no
-        console
-        if ((item.NAME === "localidade") && (item.STATE === "UF")) {
+        if ((item.NAME === localidade)) {
             console.log("A irradiação anual de", item.NAME, "é: ", item.ANNUAL)
         }
     });

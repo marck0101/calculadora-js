@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>localidade</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" cpntent="width=device-width, initial-scale=1.0">
+    <!-- o defer carrega os scripts junto com o carregamento do html mas só executa após o carregamento do html -->
+    <script src="../teste localidade json/script.js" defer></script>
+    <script src="../teste localidade json/Testejson.js" defer></script>
+    <style>
+        .borda {
+            margin-left: 500px;
+            margin-top: 100px;
+            margin: 5px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="borda">
+        <h5>3.Local da instalação</h5>
+        <h5>Coletando Dados de Cep de uma API</h5>
+        <label>CEP:</label><br>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input class="form-control" type="text" id="cep" name="cep" oninput="fazerRequisicao();" value=""
+                    placeholder="CEP do local" required>
+                <br>
+                <label>Localidade:</label><br>
+                <div id="localidade"></div>
+            </div>
+        </div>
+    </div>
+<!-- Além da localidade, vai ser preciso criar um JS transformando UF em nomes de estados(Em maiúsculo) -->
+
+</body>
+
+</html>
