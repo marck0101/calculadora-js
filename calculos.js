@@ -128,7 +128,6 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
 
         consumoMensal();
         picoSistema(cm);
-        // irradJson();
         // potenciaInstalada();
         // areaPesp()
 
