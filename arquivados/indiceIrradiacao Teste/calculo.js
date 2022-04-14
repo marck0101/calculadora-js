@@ -64,7 +64,7 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
                         console.log("telefone do possível Cliente: " + telefoneContato)
                         if ((email != undefined) & (email != "")) {
                             console.log("email do Cliente: " + email)
-
+                            irradJson(localidade);
                         }
 
                     }
@@ -73,15 +73,7 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
         }
 
     }
-
 }
-
-function getLocalidade() {
-    var localidade = getElementById("localidade").value
-    return localidade
-}
-
-
 // console.log("Nome do possível Cliente: " + email)
 function exibeGrid() {
     var exibe =
@@ -135,7 +127,7 @@ function irradJson(localidade) {
             indIrrad = item.ANNUAL;
         }
     });
-    return indIrrad
+    consumoMensal(indIrrad);
 
 }
 
@@ -247,7 +239,7 @@ function irradJson(localidade) {
 // }
 
 
-function consumoMensal() {
+function consumoMensal(indIrrad) {
     var contaMes = 500;
     var tarifa = 5;
     var cm = 0;
@@ -257,12 +249,18 @@ function consumoMensal() {
     if ((contaMes != 0) && (tarifa != 0)) {
         cm = contaMes / tarifa;
         console.log("A media do consumo mensal e " + cm + "kWp");
+        picoSistema(indIrrad, cm)
     } else {
         alert("insira o valor nos campos");
     }
-    return cm
 
 }
+
+// function teste(item) {
+//     if (item != 0) {
+//         console.log("irradiação anual do municipio AQUI:", item)
+//     }
+// }
 
 
 function picoSistema(indIrrad, cm) {
@@ -277,37 +275,6 @@ function picoSistema(indIrrad, cm) {
         potenciaPico = cm / (eficienciaSistema * indIrrad * (365 / 12));
         console.log("o pico do sistema e: " + potenciaPico);
     }
-    return potenciaPico
 }
 
 
-function areaEstimada(potenciaPico) {
-    console.log("potencia --> Pico", potenciaPico)
-    //let potenciaPico = 100;
-    let areaSistema = 0;
-    let potenciaModulo = 10;
-    let areaModulo = 2;
-    let fatorSolo = 2.3;
-    let fatorTelhado = 1.5;
-    let local = document.getElementById("local").value;
-
-
-    if (local === "empresa") {
-        (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorTelhado));
-        console.log("Aqui acessou")
-        console.log("fator telhado com area estimada: " + areaSistema)
-    } else {
-        (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorSolo));
-        console.log("fator solo com area estimada: " + areaSistema)
-    }
-}
-
-
-function maeFunction() {
-    var localidade = getLocalidade();
-    captApresenta();
-    var cm = consumoMensal();
-    var irradSolar = irradJson(localidade);
-    picoSistema(irradSolar, cm);
-    var potenciaPico = areaEstimada(potenciaPico);
-}
