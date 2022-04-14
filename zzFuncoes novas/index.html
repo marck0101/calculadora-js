@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="calculo.js"></script>
+    <script src="Testejson.js"></script>
+
+    <title>Mais testes</title>
+</head>
+
+<body >
+
+<style>
+    .layout{
+    align-items: center;
+    margin: 100px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    border: 3px solid;
+    padding: 3%;
+
+}
+</style>
+
+
+    <div class="layout">
+    <div class="alinhamento">
+        <h5>3.Local da instalação</h5>
+        <h5>Coletando Dados de Cep de uma API</h5>
+        <label>CEP:</label><br>
+        <div>
+            <div>
+                <input class="form-control" type="text" id="cep" name="cep" oninput="getCEP();" value=""
+                    placeholder="CEP do local" required>
+                <br>
+                <label>Localidade:</label><br>
+                <div id="localidade"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="borda">
+        <h5>4.Quanto gasta por mês?</h5>
+        <label>R$:</label><br>
+        <div class="form-group">
+            <div class="col-md-5">
+                <span class="input-euro left" type="text" id="gastoMensal" name="gastoMensal">
+                    <input class="form-control " name="contaMes" id="contaMes" type="text" placeholder="2000"
+                        value="500" />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="borda">
+        <h5>5.Qual o valor da tarifa paga ?</h5>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input class="form-control" name="tarifa" id="tarifa" type="text" placeholder="0.58" value="10" />
+            </div>
+        </div>
+    </div>
+    <div class="borda">
+        <h5>6.Quantos kWp/h são consumidos</h5>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input class="form-control " name="kwpConsumo" id="kwpConsumo" type="text" placeholder="3.389"
+                    value="3.389" />
+            </div>
+        </div>
+    </div>
+
+    <div class="borda">
+        <div>
+            <h5>Informações para contato</h5>
+            <div class="form-group">
+                <div class="   col-md-5">
+                    <label>Nome Completo</label>
+                    <input type="nomeCompleto" name="nomeCompleto" id="nomeCompleto" class="form-control "
+                        placeholder="Nome e Sobrenome" value="Nome e Sobrenome">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Telefone de contato</label>
+                    <input type="telefoneContato" name="telefoneContato" id="telefoneContato" class="form-control "
+                        placeholder="(55) 9 0000-0000" value="(55) 9 0000-0000">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="  col-md-5">
+                    <label>E-MAIL</label>
+                    <input type="email" name="email" id="email" class="form-control " placeholder="nome@email.com"
+                        value="nome@email.com">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div>
+        <button class="btn btn-secondary btn-lg btn-block" onclick="maeFunction() ">Simule
+            Agora</button>
+        <!--O botão vai estar atribuido a 3 funções-->
+        <!--primeiro abrir um grid com os cálculos que foi apresentado com um orçamento para o cliente-->
+        <!--Armazenar todas as informações digitadas em variáveis-->
+        <!--Enviar por email as credenciais do cliente para um email que vai ser setado-->
+    </div>
+
+
+</div>
+</body>
+
+</html>
