@@ -1,6 +1,6 @@
 function consumoMensal() {
     var contaMes = document.getElementById("contaMes").value;
-    var tarifa =  document.getElementById("tarifa").value;
+    var tarifa = document.getElementById("tarifa").value;
     var cm = 0;
     var quo = Math.floor(contaMes / cm);
     var rem = contaMes % cm;
@@ -15,7 +15,3 @@ function consumoMensal() {
 
 }
 
-
-function maeFunction(){
-    consumoMensal()
-}

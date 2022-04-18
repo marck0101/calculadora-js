@@ -77,7 +77,7 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
 }
 
 function getLocalidade() {
-    var localidade = getElementById("localidade").value
+    var localidade = document.getElementById("localidade").value
     return localidade
 }
 
