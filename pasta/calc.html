@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Apostila JavaScript Progressivo</title>
+    <script type="text/javascript" src=""></script>
+</head>
+
+<body>
+    <!-- aqui vai ser colocado valor 1 -->
+    Numero 1:
+    <input id="num1" type="number"> <br />
+    <!-- aqui vai ser colocado valor 2 -->
+    Numero 2:
+    <input id="num2" type="number"> <br />
+
+    <!-- Aqui vai ser selecionado o tipo de operacao -->
+    <input type="radio" name="calc" id="soma" /> Soma<br />
+    <input type="radio" name="calc" id="subtracao" /> Subtração<br />
+    <input type="radio" name="calc" id="multiplicacao" /> Multiplicação<br />
+    <input type="radio" name="calc" id="divisao" /> Divisão<br />
+
+    <!-- Aqui vai ser chamado a funcao -->
+    <button onclick="main()">Calcular</button><br />
+
+    Resposta: <div id="resp"></div>
+</body>
+
+</html>
+
+<script>
+    // funcao mae abaixo
+    function main() {
+        //o resp é a variavel que vai armazenar o resultado 
+        var resp = document.getElementById('resp');
+        //o num1 é o prmeiro input 
+        var num1 = parseFloat(document.getElementById("num1").value);
+        //o num2 é o segundo input
+        var num2 = parseFloat(document.getElementById("num2").value);
+        //o var texto vai estar armazenando o resultado do calculo
+        var texto = '';
+
+        //se soma estiver selecionado 
+        if (document.getElementById('soma').checked)
+            //aqui vai passar os parametros do calculo que vai ser passado para a funcao
+            texto = soma(num1, num2);
+
+        //se subtracao estiver selecionado 
+        if (document.getElementById('subtracao').checked)
+            //aqui vai passar os parametros do calculo que vai ser passado para a funcao
+            texto = subtracao(num1, num2);
+
+        //se multiplicacao estiver selecionado 
+        if (document.getElementById('multiplicacao').checked)
+            //aqui vai passar os parametros do calculo que vai ser passado para a funcao
+            texto = multiplicacao(num1, num2);
+
+        //se divisao estiver selecionado 
+        if (document.getElementById('divisao').checked)
+            //aqui vai passar os parametros do calculo que vai ser passado para a funcao
+            texto = divisao(num1, num2);
+        //o texto vai pegar a resposta do calculo e vai passar para resp,
+        // e o resp.innerHTML vai estar passando para a tela o resultado
+        resp.innerHTML = texto;
+    }
+
+    //se entrar no iff de soma, ele vem para cá
+    function soma(x, y) {
+        //recebe o os parâmetros de num1 e mum2
+        return (x + y);
+        //vai retotnar o valor da soma
+    }
+    //se entrar no iff de subtracao, ele vem para cá
+    function subtracao(x, y) {
+        //recebe o os parâmetros de num1 e mum2
+        return (x - y);
+        //vai retotnar o valor da subtracao
+    }
+    //se entrar no iff de multiplicacao, ele vem para cá
+    function multiplicacao(x, y) {
+        //recebe o os parâmetros de num1 e mum2
+        return (x * y);
+        //vai retotnar o valor da multiplicacao
+    }
+    //se entrar no iff de divisao, ele vem para cá
+    function divisao(x, y) {
+        //recebe o os parâmetros de num1 e mum2
+        return (x / y);
+        //vai retotnar o valor da divisao
+    }
+
+</script>

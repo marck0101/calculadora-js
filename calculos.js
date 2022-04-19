@@ -16,6 +16,7 @@ function getCEP() {
     } else {
         document.getElementById("localidade").innerHTML = "cep invalido";
     }
+    return localidade
 }
 
 function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
@@ -77,8 +78,10 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
 }
 
 function getLocalidade() {
-    var localidade = document.getElementById("localidade").value
-    return localidade
+    console.log("entrou na funcao getLocalidade")
+
+    var endereco = document.getElementById("localidade").value 
+    return endereco
 }
 
 
@@ -125,12 +128,15 @@ function exibeGrid() {
 
 
 
-function irradJson(localidade) {
+function irradJson(endereco) {
+    console.log("entrou na funcao irradJson")
+    console.log("localidade recebida " + endereco)
+
     var json = JSON.parse(irradiacao);
     var indIrrad = "";
     json.map((item) => {
         // o map vai buscar o item que o teste está carregando, no caso o número e vai printar no
-        if ((item.NAME === localidade)) {
+        if ((item.NAME === endereco)) {
             console.log("A irradiação anual de", item.NAME, "é: ", item.ANNUAL)
             indIrrad = item.ANNUAL;
         }
@@ -248,8 +254,10 @@ function irradJson(localidade) {
 
 
 function consumoMensal() {
-    var contaMes = 500;
-    var tarifa = 5;
+    console.log("entrou na funcao consumoMensal")
+
+    var contaMes = document.getElementById("contaMes").value;
+    var tarifa = document.getElementById("tarifa").value;
     var cm = 0;
     var quo = Math.floor(contaMes / cm);
     var rem = contaMes % cm;
@@ -303,11 +311,26 @@ function areaEstimada(potenciaPico) {
 }
 
 
+// function maeFunction() {
+//     console.log("entrou na funcao maeFunction")
+//     var endereco = getCEP()
+//     var indIrrad = irradJson(endereco);
+//     // var localidade = getLocalidade();
+//     captApresenta();
+//     var cm = consumoMensal();
+//     var irradSolar = irradJson(localidade);
+//     picoSistema(irradSolar, cm);
+//     var potenciaPico = areaEstimada(potenciaPico);
+// }
+
 function maeFunction() {
-    var localidade = getLocalidade();
-    captApresenta();
+    console.log("entrou na funcao maeFunction")
+    // console.log(getLocalidade())
+
+    var endereco = getCEP()
+        
+    // var localidade = getLocalidade(localidade);
+    var indIrrad = irradJson(endereco);
     var cm = consumoMensal();
-    var irradSolar = irradJson(localidade);
-    picoSistema(irradSolar, cm);
-    var potenciaPico = areaEstimada(potenciaPico);
+    var potenciaPico = picoSistema(indIrrad, cm);
 }

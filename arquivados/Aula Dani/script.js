@@ -23,12 +23,13 @@ function funcao5() {
 
 function funcao0() {
     funcao1();
+
     var nome = "Roberto"
 
     funcao2(nome);
 
     funcao3("30", "Masculino");
-    
+
     console.log(funcao4(50, 20))
     var teste = funcao4(100, 50)
     console.log(teste)

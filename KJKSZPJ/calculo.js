@@ -69,6 +69,26 @@ function picoSistema(indIrrad, cm) {
     return potenciaPico
 }
 
+function areaEstimada(potenciaPico) {
+    console.log("potencia --> Pico", potenciaPico)
+    //let potenciaPico = 100;
+    let areaSistema = 0;
+    let potenciaModulo = 10;
+    let areaModulo = 2;
+    let fatorSolo = 2.3;
+    let fatorTelhado = 1.5;
+    let local = document.getElementById("local").value;
+
+    if (local === "empresa") {
+        (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorTelhado));
+        console.log("Aqui acessou")
+        console.log("fator telhado com area estimada: " + areaSistema)
+    } else {
+        (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorSolo));
+        console.log("fator solo com area estimada: " + areaSistema)
+    }
+}
+
 function maeFunction() {
     console.log("entrou na funcao maeFunction")
     // console.log(getLocalidade())
@@ -77,4 +97,6 @@ function maeFunction() {
     var indIrrad = irradJson(endereco);
     var cm = consumoMensal();
     var potenciaPico = picoSistema(indIrrad, cm);
+
+   console.log( areaEstimada(potenciaPico));
 }

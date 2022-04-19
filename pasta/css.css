@@ -1,0 +1,12 @@
+.text{
+    text-align: center;
+    color: brown;
+}
+
+.alinhamento{
+margin-top: 20px;
+margin-left: 20px;
+margin-right: 100px;
+padding: 10px;
+border: 1px solid;
+}
