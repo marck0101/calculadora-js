@@ -25,6 +25,7 @@ function mae() {
         c = divisao(a, b);
         operacao = "divisao"
     }
+
     console.log("O resultado da ", operacao, " é:", c)
     resp.innerHTML = c;
 }
@@ -38,6 +39,7 @@ function subtracao(a, b) {
     c = a - b
     return c
 }
+
 function multiplicacao(a, b) {
     c = a * b
     return c
