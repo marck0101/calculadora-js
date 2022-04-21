@@ -59,44 +59,108 @@ function irradJson(endereco) {
 function picoSistema(indIrrad, cm) {
     console.log("entrou na funcao picoSistema")
     if (cm != 0) {
-        // var consumoMensal = 100;
-        var potenciaPico = 1000;
+        var potenciaPico = "";
         var eficienciaSistema = 0.83;
-        // var indiceIrradiacao = 0.5;
-        potenciaPico = cm / (eficienciaSistema * indIrrad * (365 / 12));
-        console.log("o pico do sistema e: " + potenciaPico);
+        potenciaPico = cm / (eficienciaSistema * indIrrad * (365 / 12) * 1000);
     }
     return potenciaPico
 }
 
 function areaEstimada(potenciaPico) {
-    console.log("potencia --> Pico", potenciaPico)
-    //let potenciaPico = 100;
-    let areaSistema = 0;
-    let potenciaModulo = 10;
+    console.log("entou o valor de potencia --> Pico", potenciaPico)
+    let areaSistema = "";
+    let potenciaModulo = 450;
     let areaModulo = 2;
     let fatorSolo = 2.3;
     let fatorTelhado = 1.5;
     let local = document.getElementById("local").value;
-
     if (local === "empresa") {
         (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorTelhado));
-        console.log("Aqui acessou")
         console.log("fator telhado com area estimada: " + areaSistema)
     } else {
         (areaSistema = (potenciaPico / potenciaModulo) * ((areaModulo * areaModulo) * fatorSolo));
         console.log("fator solo com area estimada: " + areaSistema)
     }
+    return areaSistema
 }
+
+function energiaGeradaAno(indIrrad, potenciaPico) {
+    var geracaoAno = "";
+    var eficienciaSistema = 0.83;
+    geracaoAno = potenciaPico * eficienciaSistema * indIrrad * 365
+    console.log("energia gerada no ano " + geracaoAno)
+    return geracaoAno
+
+}
+
+function energiaGeradaMes(geracaoAno) {
+    var geracaoMes = 0;
+    geracaoMes = geracaoAno / 12
+    console.log("A geracao de energia mensal é ", geracaoMes)
+    return geracaoMes
+}
+
+function exibeGrid(potenciaPico, geracaoMes, geracaoAno, areaSistema) {
+    exibe =
+
+        "<div>" +
+        "<div>" + potenciaPico + "</div> <!--1-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>Tamanho do sistema indicado" + geracaoMes + "</div> <!--2-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>Potencia instalada" + geracaoAno + "</div><!--3-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>economia mensal" + areaSistema + "</div> <!--1-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>Quantidade de módulos " + geracaoMes + "</div><!--2-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>Média de produção mensal" + geracaoMes + "</div><!--3-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>valor aproximado do investimento" + geracaoMes + "</div> <!--1-->" +
+        "</div>" +
+
+        "<div>" +
+        "<div>Área estimada" + geracaoMes + "</div><!--2-->" +
+        "</div>" +
+
+
+        `<div>
+        asyuid
+        ${potenciaPico}
+        </div>`;
+
+    document.getElementById("resultado2").innerHTML = exibe;
+}
+
 
 function maeFunction() {
     console.log("entrou na funcao maeFunction")
-    // console.log(getLocalidade())
+
     var endereco = getCEP()
-    // var localidade = getLocalidade(localidade);
+
     var indIrrad = irradJson(endereco);
     var cm = consumoMensal();
     var potenciaPico = picoSistema(indIrrad, cm);
+    console.log(potenciaPico, "   var potenciaPico = picoSistema(indIrrad, cm);")
 
-   console.log( areaEstimada(potenciaPico));
+    console.log(areaEstimada(potenciaPico));
+    var geracaoAno = energiaGeradaAno(indIrrad, potenciaPico)
+    var geracaoMes = energiaGeradaMes(geracaoAno)
+    exibeGrid(potenciaPico, geracaoMes, geracaoAno, areaSistema);
 }
+
+
+// preciso fazer a energia gerada no ano
+// ajustar a função mãe

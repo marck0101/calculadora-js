@@ -4,10 +4,11 @@
 <head>
     <script src="calculo.js"></script>
     <script src="Testejson.js"></script>
+    <link type="text/css" rel="stylesheet" href="meuCss.css">
 
 </head>
 
-<body>
+<body class="borda">
 
     <div class="borda">
         <h3>1. Local com rede elétrica?</h3>
@@ -46,7 +47,12 @@ teto ou solo, e ver se o publico foco está sendo atingido -->
     <h5>5.Qual o valor da tarifa paga ?</h5>
     <input class="form-control" name="tarifa" id="tarifa" type="text" placeholder="0.58" value="10" />
 
+    <h5>6.Quantos kWp/h são consumidos</h5>
+    <input class="form-control " name="kwpConsumo" id="kwpConsumo" type="text" placeholder="3.389" value="3.389" />
+
     <button class="btn btn-secondary btn-lg btn-block" onclick="maeFunction()">Simule Agora</button>
+    <div class='grid-container' id="resultado2" name="resultado2"></div>
+
 </body>
 
 </html>
