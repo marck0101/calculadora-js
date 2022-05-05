@@ -22,7 +22,7 @@ function getCEP() {
 
 function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
     var cep = document.getElementById("cep").value;
-    var localidade = document.getElementById("localidade").value;
+    // var localidade = document.getElementById("localidade").value;
     var redeEletrica = document.getElementById("redeEletrica").value; // como saber se é sim ou n o selecionado
     var local = document.getElementById("local").value;
     var contaMes = document.getElementById("contaMes").value;
@@ -62,7 +62,7 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
                 console.log("A média de kwp consumida é " + kwpConsumo)
                 if ((nomeCompleto != undefined) && (nomeCompleto != "")) {
                     console.log("Nome do possível Cliente: " + nomeCompleto)
-                    if ((telefoneContato != undefined) && (telefoneContato != "") && (telefoneContato.length === 11)) {
+                    if ((telefoneContato != undefined) && (telefoneContato != "")) {
                         console.log("telefone do possível Cliente: " + telefoneContato)
                         if ((email != undefined) & (email != "")) {
                             console.log("email do Cliente: " + email)
@@ -103,111 +103,6 @@ function irradJson(endereco) {
     return indIrrad
 }
 
-// //a função captApresenta vai estar capturando todas as informações digitadas pelo usuário e armazenando em variáves
-// function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email) {
-//     var cep = document.getElementById("cep").value;
-//     var localidade = document.getElementById("localidade").value;
-//     var redeEletrica = document.getElementById("redeEletrica").value; // como saber se é sim ou n o selecionado
-//     var local = document.getElementById("local").value;
-//     var contaMes = document.getElementById("contaMes").value;
-//     var tarifa = document.getElementById("tarifa").value;
-//     var kwpConsumo = document.getElementById("kwpConsumo").value;
-//     var nomeCompleto = document.getElementById("nomeCompleto").value;
-//     var telefoneContato = document.getElementById("telefoneContato").value;
-//     var email = document.getElementById("email").value;
-
-//     if (cep.length > 7) {
-//         // console.log("o cep é " + cep)
-//     }
-
-//     //  if(localidade === retorno.localidade){
-//     //      console.log("A localidade é "+ retorno.localidade)
-//     // }
-
-
-//     if (redeEletrica === "sim") {
-
-//         console.log("tem rede elétrica")
-//     } else {
-//         console.log("Não possui rede elétrica")
-//     }
-
-//     if (local === "empresa") {
-//         console.log("Rede empresarial.")
-//     } else {
-//         console.log("É uma casa")
-//     }
-
-//     if (contaMes > 0) {
-//         console.log("O valor da conta mensal é " + contaMes)
-//     }
-
-//     if (tarifa >= 0) {
-//         console.log("O valor da tarifa é " + tarifa)
-//     }
-
-//     if (kwpConsumo > 0) {
-//         console.log("A média de kwp consumida é " + kwpConsumo)
-//     }
-
-//     if (nomeCompleto != undefined) {
-//         console.log("Nome do possível Cliente: " + nomeCompleto)
-//     }
-
-//     if (telefoneContato == 11) {
-//         console.log("telefone do possível Cliente: " + telefoneContato)
-//     }
-
-//     if (email != null) {
-//         console.log("email do Cliente: " + email)
-//     }
-//     // console.log("Nome do possível Cliente: " + email)
-
-//     if (email === "" && nomeCompleto === "" && telefoneContato === "") {
-//         alert("Preencha todos os campos")
-//     } else {
-
-//         exibe =
-
-//             "<div class='grid-container borda2'>" +
-
-//             "<div>" +
-//             "<div>investimento</div> <!--1-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>Tamanho do sistema indicado</div> <!--2-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>Potencia instalada</div><!--3-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>economia mensal</div> <!--1-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>Quantidade de módulos</div><!--2-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>Média de produção mensal</div><!--3-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>valor aproximado do investimento</div> <!--1-->" +
-//             "</div>" +
-
-//             "<div>" +
-//             "<div>Área estimada</div><!--2-->" +
-//             "</div>"
-//         "</div>";
-
-//         document.getElementById("resultado2").innerHTML = exibe;
-//     }
-
-// }
 
 function consumoMensal() {
     console.log("entrou na funcao consumoMensal")
@@ -264,53 +159,108 @@ function energiaGeradaAno(indIrrad, potenciaPico) {
 }
 
 function energiaGeradaMes(geracaoAno) {
-    var geracaoMes = 0;
+    var geracaoMes = "";
     geracaoMes = geracaoAno / 12
     console.log("A geracao de energia mensal é ", geracaoMes)
     return geracaoMes
 }
 
 
-function exibeGrid(cm, potenciaPico, areaSistema, geracaoAno) {
+function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
     exibe =
+        // "<div>" +
+        // "<div>" + cm + "</div> <!--1-->" +
+        // "</div><br>" +
 
-        "<div>" +
-        "<div>" + cm + "</div> <!--1-->" +
+        // "<div>" +
+        // "<div>" + potenciaPico + "</div> <!--2-->" +
+        // "</div><br>" +
+
+        // "<div>" +
+        // "<div>" + areaSistema + "</div><!--3-->" +
+        // "</div><br>" +
+
+        // "<div>" +
+        // "<div>" + geracaoMes + "</div> <!--1-->" +
+        // "</div><br>" +
+
+        // "<div>" +
+        // "<div>" + geracaoAno + "</div> <!--1-->" +
+        // "</div>"+
+
+
+        "<div class='borda4'>" +
+        " <div class='row'>" +
+        " <div class='col'>" +
+        " <div class='borda3'>" +
+        cm +
+        " </div>" +
+        " </div>" +
+
+        " <div class='col'>" +
+        " <div class='borda3'>" +
+        potenciaPico +
+        "</div>" +
+        " </div>" +
+
+        " <div class='col'>" +
+        "<div class='borda3'>" +
+        areaSistema +
+        " </div>" +
+        "</div>" +
         "</div>" +
 
-        "<div>" +
-        "<div>" + potenciaPico + "</div> <!--2-->" +
+
+        " <div class=''>" +
+        "<div class='row'>" +
+        "<div class='col'>" +
+        " <div class='borda3'>" +
+        geracaoMes +
+        "</div>" +
         "</div>" +
 
-        "<div>" +
-        "<div>" + areaSistema + "</div><!--3-->" +
+        "<div class='col'>" +
+        "<div class='borda3'>" +
+        geracaoAno +
+        " </div>" +
         "</div>" +
+        "</div>" +
+        " </div>" +
+        "</div>";
 
-        "<div>" +
-        "<div>" + geracaoMes + "</div> <!--1-->" +
-        "</div>" +
-
-        "<div>" +
-        "<div>" + geracaoAno + "</div> <!--1-->" +
-        "</div>" +
-        `<div>
-        asyuid
-        ${potenciaPico}
-        </div>`;
 
     document.getElementById("resultado2").innerHTML = exibe;
 }
 
 
 function maeFunction() {
-    console.log("entrou na funcao maeFunction")
-    var endereco = getCEP()
+    console.log("entrou na funcao maeFunction");
+    //vai retornar a localidade e armazenar na variavel endereco
+    var endereco = getCEP();
+    //vai usar a variavel de endereco para procurar o nivel de irradiacao
     var indIrrad = irradJson(endereco);
+    //consumoMensal está retornando algo que é armazenado dentro de cm
     var cm = consumoMensal();
+    //pico sistema retorna um resultado que é armazenado dentro de potenciaPico
     var potenciaPico = picoSistema(indIrrad, cm);
-    console.log(areaEstimada(potenciaPico));
-    var geracaoAno = energiaGeradaAno(indIrrad, potenciaPico)
-    var geracaoMes = energiaGeradaMes(geracaoAno)
-    exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno);
-}
+    // console.log(areaEstimada(potenciaPico));
 
+    // a area estimada precisa da potenciaPico para calcular
+    var areaSistema = areaEstimada(potenciaPico)
+
+    // var areaSistema = areaEstimada();
+
+    //aqui retorna geração ano, e para calcular é preciso de indIrrad, potenciaPico
+    var geracaoAno = energiaGeradaAno(indIrrad, potenciaPico);
+    //vai retornar geracaoMes, mas precisa de geracaoAno para calcular
+    var geracaoMes = energiaGeradaMes(geracaoAno);
+
+    captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email);
+
+    //exibe grid, mas para isso precisa => ()
+    exibeGrid(cm,
+        potenciaPico,
+        areaSistema,
+        geracaoMes,
+        geracaoAno);
+}
