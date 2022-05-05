@@ -547,49 +547,44 @@
                             <div class="borda">
                                 <div>
                                     <h5>Informações para contato</h5>
-                                    <div class="form-group">
-                                        <div class="   col-md-5">
-                                            <label>Nome Completo</label>
-                                            <input type="nomeCompleto" name="nomeCompleto" id="nomeCompleto"
-                                                class="form-control " placeholder="Nome e Sobrenome"
-                                                value="Nome e Sobrenome">
-                                        </div>
+                                    <div>
+                                        <label>Nome Completo</label>
+                                        <input type="text" name="name" id="nomeCompleto" class="form-control "
+                                            placeholder="Nome e Sobrenome" value="Nome e Sobrenome"><br>
                                     </div>
 
-                                    <div class="form-group">
-                                        <div class="col-md-5">
-                                            <label>Telefone de contato</label>
-                                            <input type="telefoneContato" name="telefoneContato" id="telefoneContato"
-                                                class="form-control " placeholder="(55) 9 0000-0000"
-                                                value="(55) 9 0000-0000">
-                                        </div>
+                                    <div>
+                                        <label>Telefone de contato</label>
+                                        <input type="text" name="message" id="telefoneContato" class="form-control "
+                                            placeholder="(55) 9 0000-0000"><br>
                                     </div>
 
-                                    <div class="form-group">
-                                        <div class="  col-md-5">
-                                            <label>E-MAIL</label>
-                                            <input type="email" name="email" id="email" class="form-control "
-                                                placeholder="nome@email.com" value="nome@email.com">
-                                        </div>
+                                    <div>
+                                        <label>E-MAIL</label><br>
+                                        <input type="email" name="email" id="email" class="form-control "
+                                            placeholder="nome@email.com" value="nome@email.com"><br>
                                     </div>
 
-                                </div>
-                            </div>
-                            <br>
-                            <div>
-                                <button class="btn btn-secondary btn-lg btn-block" onclick="maeFunction() ">Simule
+                                    <button class="btn btn-secondary btn-lg btn-block" onclick="maeFunction() ">Simule
+                                        Agora</button>
                                     Agora</button>
-                                <!--O botão vai estar atribuido a 3 funções-->
-                                <!--primeiro abrir um grid com os cálculos que foi apresentado com um orçamento para o cliente-->
-                                <!--Armazenar todas as informações digitadas em variáveis-->
-                                <!--Enviar por email as credenciais do cliente para um email que vai ser setado-->
-                            </div>
-                            <!-- </form> -->
-                            <div class="borda2">
-                                <div class='grid-container' id="resultado2" name="resultado2">
+                                    <!--O botão vai estar atribuido a 3 funções-->
+                                    <!--primeiro abrir um grid com os cálculos que foi apresentado com um orçamento para o cliente-->
+                                    <!--Armazenar todas as informações digitadas em variáveis-->
+                                    <!--Enviar por email as credenciais do cliente para um email que vai ser setado-->
                                 </div>
-                                <!--Aqui está chamando o grid com as informações-->
-                            </div>
+                                <!-- </form> -->
+                                <div class="borda4">
+                                    <div class="">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="row space">
+                                                <div class='grid' id="resultado2" name="resultado2">
+                                                </div>
+                                                <!--Aqui está chamando o grid com as informações-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </table>
                     </div>
                 </div>

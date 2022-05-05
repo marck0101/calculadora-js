@@ -271,42 +271,28 @@ function energiaGeradaMes(geracaoAno) {
 }
 
 
-function exibeGrid(potenciaPico) {
+function exibeGrid(cm, potenciaPico, areaSistema, geracaoAno) {
     exibe =
 
         "<div>" +
-        "<div>" + potenciaPico + "</div> <!--1-->" +
+        "<div>" + cm + "</div> <!--1-->" +
         "</div>" +
 
         "<div>" +
-        "<div>Tamanho do sistema indicado</div> <!--2-->" +
+        "<div>" + potenciaPico + "</div> <!--2-->" +
         "</div>" +
 
         "<div>" +
-        "<div>Potencia instalada</div><!--3-->" +
+        "<div>" + areaSistema + "</div><!--3-->" +
         "</div>" +
 
         "<div>" +
-        "<div>economia mensal</div> <!--1-->" +
+        "<div>" + geracaoMes + "</div> <!--1-->" +
         "</div>" +
 
         "<div>" +
-        "<div>Quantidade de módulos</div><!--2-->" +
+        "<div>" + geracaoAno + "</div> <!--1-->" +
         "</div>" +
-
-        "<div>" +
-        "<div>Média de produção mensal</div><!--3-->" +
-        "</div>" +
-
-        "<div>" +
-        "<div>valor aproximado do investimento</div> <!--1-->" +
-        "</div>" +
-
-        "<div>" +
-        "<div>Área estimada</div><!--2-->" +
-        "</div>" +
-
-
         `<div>
         asyuid
         ${potenciaPico}
@@ -325,5 +311,5 @@ function maeFunction() {
     console.log(areaEstimada(potenciaPico));
     var geracaoAno = energiaGeradaAno(indIrrad, potenciaPico)
     var geracaoMes = energiaGeradaMes(geracaoAno)
-    exibeGrid(potenciaPico);
+    exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno);
 }
