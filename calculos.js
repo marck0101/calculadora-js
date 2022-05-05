@@ -313,3 +313,4 @@ function maeFunction() {
     var geracaoMes = energiaGeradaMes(geracaoAno)
     exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno);
 }
+
