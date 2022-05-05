@@ -15,6 +15,26 @@
     border: 5px;
 }
 
+.borda3 {
+    background-color: #818182;
+    text-align: center;
+    padding-top: 5px;
+    margin: 5px;
+    height: "100";
+    width: "50%";
+}
+
+.borda4 {
+    background-color: #cce5ff;
+    text-align: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 5px;
+    border: #000;
+}
+
 
 .container {
     border-radius: 5px;
