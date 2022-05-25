@@ -1,0 +1,31 @@
+.flex-container {
+  color: aliceblue;
+  display: flex;
+  width: inherit;
+
+  /* flex-direction: row; */
+  /* flex-wrap: nowrap; */
+  /* justify-content: space-around; */
+  align-items: stretch;
+}
+
+.borda {
+  /* height: 800px;
+  width: 800px; */
+  display: flex;
+  border: 2px solid;
+  margin: 15px;
+  padding: 15px;
+}
+
+.borda1 {
+  display: flex;
+  background-color: red;
+  width: 150px;
+}
+
+.borda2 {
+  display: flex;
+  background-color: blue;
+  width: 75px;
+}

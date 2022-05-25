@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <script src="javaTeste.js"></script> -->
+    <!--chama script de outro arquivo-->
+    <title>Fockink | Simulador de geração fotovoltaica</title>
+    <!--título e da pag -->
+
+    <!-- aqui vai o arquivo mãe de JS  -->
+    <script src="calculos.js" defer></script>
+    <!-- <link type="script" src="js/calculos.js"> -->
+
+    <!-- aqui vai estar chamando o arquivo Testejson com todo as irradiações solares -->
+    <script src="./Testejson.js" defer></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="icon" type="imagem/png" href="img/icon.svg" />
+    <!--Chama o bootstrap e coloca o ícone no titulo-->
+
+    <link rel="stylesheet" media="screen and (min-width: 300px)" href="./css/cssSite.css">
+    <!--chama as conf. do css de outra pag-->
+
+    <link href="js/javaScript.js">
+    </link>
+
+    <!-- <link rel="stylesheet" media="screen and (min-width: 900px)" href="./css/meuCss.css" />
+    Aqui vai ser puxado conf de responsividade -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="DZR0pltugQypXzwbqC40RTh036wSnQBR6SYUvc2b">
+    <title>Fockink | Gerando Soluções e Integrando Tecnologias</title>
+    <meta property="og:url" content="https://www.fockink.ind.br/equipamentos/geracao-fotovoltaica">
+    <meta property="og:title" content="Fockink | Gerando Soluções e Integrando Tecnologias">
+    <meta property="og:description" content="Gerando Soluções e Integrando Tecnologias">
+    <meta property="og:image" content="">
+    <meta name="description" content="Gerando Soluções e Integrando Tecnologias">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.fockink.ind.br/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.fockink.ind.br/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.fockink.ind.br/favicon-16x16.png">
+    <link rel="manifest" href="https://www.fockink.ind.br/site.webmanifest">
+    <link rel="mask-icon" href="https://www.fockink.ind.br/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <!-- aqui vai ter uma lâmina no layou da imagem. -->
+    <link href="https://www.fockink.ind.br/assets/css/app.css" rel="stylesheet">
+
+    <!--Estilos na minha máquina-->
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="./css/cssSite.css">
+
+    <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=UA-167629396-1&amp;l=dataLayer&amp;cx=c"></script>
+    <script type="text/javascript" async=""
+        src="https://www.gstatic.com/recaptcha/releases/Y-cOIEkAqcfDdup_qnnmkxIC/recaptcha__pt_br.js"
+        crossorigin="anonymous"
+        integrity="sha384-4PPvD07juPg++7DyDB/2BHUQ5gV5E3b1/e+LRZvRMNMYWiAif29CHIhmo+F9S/mR"></script>
+    <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=AW-10793611814&amp;l=dataLayer&amp;cx=c"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async=""
+        src="https://www.gstatic.com/recaptcha/releases/Y-cOIEkAqcfDdup_qnnmkxIC/recaptcha__pt_br.js"
+        crossorigin="anonymous"
+        integrity="sha384-4PPvD07juPg++7DyDB/2BHUQ5gV5E3b1/e+LRZvRMNMYWiAif29CHIhmo+F9S/mR"></script>
+    <script type="text/javascript">
+        var base_url = "https://www.fockink.ind.br";
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-167629396-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-167629396-1');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Ads: 10793611814 -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-10793611814"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-10793611814');
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <link type="text/css" rel="stylesheet" charset="UTF-8"
+        href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+    <script type="text/javascript" charset="UTF-8"
+        src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.pt_BR.PIa-r8ud968.O/am=Bg/d=1/exm=el_conf/ed=1/rs=AN8SPfrljc4z5AHzjsUUq6Gu_M7hIxENYA/m=el_main"></script>
+
+
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8"
+        href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+    <script type="text/javascript" charset="UTF-8"
+        src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.pt_BR.PIa-r8ud968.O/am=Bg/d=1/exm=el_conf/ed=1/rs=AN8SPfrljc4z5AHzjsUUq6Gu_M7hIxENYA/m=el_main"></script>
+    <script type="text/javascript">
+
+        /* <![CDATA[ */
+        eval(function (p, a, c, k, e, r) {
+            e = function (c) {
+                return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+            }
+
+                ; if (!''.replace(/^/, String)) {
+                    while (c--) r[e(c)] = k[c] || e(c); k = [function (e) {
+                        return r[e]
+                    }
+
+                    ]; e = function () {
+                        return '\\w+'
+                    }
+
+                        ; c = 1
+                }
+
+            ; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p
+        }
+
+            ('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}', 43, 43, '||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'), 0, {}
+
+            ))
+
+        /* ]]> */
+    </script>
+    <script>gtag('event', 'page_view', {
+
+            'send_to': 'AW-10793611814',
+            'value': 'replace with value',
+            'items': [{
+                'id': 'replace with value',
+                'location_id': 'replace with value',
+                'google_business_vertical': 'custom'
+            }
+
+            ]
+        }
+
+        );
+    </script>
+
+
+</head>
+
+
+<body style="position: relative; min-height: 100%; top: 0px;">
+    <!-- <div id="google_translate_element2">
+        <div class="skiptranslate goog-te-gadget" dir="ltr" style="">
+            <div id=":0.targetLanguage"><select class="goog-te-combo" aria-label="Widget de tradução de idiomas">
+                    <option value="">Selecione o idioma</option>
+                    <option value="af">Africâner</option>
+                    <option value="sq">Albanês</option>
+                    <option value="de">Alemão</option>
+                    <option value="am">Amárico</option>
+                    <option value="ar">Árabe</option>
+                    <option value="hy">Armênio</option>
+                    <option value="az">Azerbaijano</option>
+                    <option value="eu">Basco</option>
+                    <option value="bn">Bengali</option>
+                    <option value="be">Bielo-russo</option>
+                    <option value="my">Birmanês</option>
+                    <option value="bs">Bósnio</option>
+                    <option value="bg">Búlgaro</option>
+                    <option value="kn">Canarês</option>
+                    <option value="ca">Catalão</option>
+                    <option value="kk">Cazaque</option>
+                    <option value="ceb">Cebuano</option>
+                    <option value="ny">Chicheua</option>
+                    <option value="zh-CN">Chinês (simplificado)</option>
+                    <option value="zh-TW">Chinês (tradicional)</option>
+                    <option value="sn">Chona</option>
+                    <option value="si">Cingalês</option>
+                    <option value="ko">Coreano</option>
+                    <option value="co">Corso</option>
+                    <option value="ht">Crioulo haitiano</option>
+                    <option value="hr">Croata</option>
+                    <option value="ku">Curdo</option>
+                    <option value="da">Dinamarquês</option>
+                    <option value="sk">Eslovaco</option>
+                    <option value="sl">Esloveno</option>
+                    <option value="es">Espanhol</option>
+                    <option value="eo">Esperanto</option>
+                    <option value="et">Estoniano</option>
+                    <option value="tl">Filipino</option>
+                    <option value="fi">Finlandês</option>
+                    <option value="fr">Francês</option>
+                    <option value="fy">Frísio</option>
+                    <option value="gd">Gaélico escocês</option>
+                    <option value="gl">Galego</option>
+                    <option value="cy">Galês</option>
+                    <option value="ka">Georgiano</option>
+                    <option value="el">Grego</option>
+                    <option value="gu">Guzerate</option>
+                    <option value="ha">Hauçá</option>
+                    <option value="haw">Havaiano</option>
+                    <option value="iw">Hebraico</option>
+                    <option value="hi">Hindi</option>
+                    <option value="hmn">Hmong</option>
+                    <option value="nl">Holandês</option>
+                    <option value="hu">Húngaro</option>
+                    <option value="ig">Igbo</option>
+                    <option value="yi">Iídiche</option>
+                    <option value="id">Indonésio</option>
+                    <option value="en">Inglês</option>
+                    <option value="yo">Ioruba</option>
+                    <option value="ga">Irlandês</option>
+                    <option value="is">Islandês</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">Japonês</option>
+                    <option value="jw">Javanês</option>
+                    <option value="km">Khmer</option>
+                    <option value="rw">Kinyarwanda</option>
+                    <option value="lo">Laosiano</option>
+                    <option value="la">Latim</option>
+                    <option value="lv">Letão</option>
+                    <option value="lt">Lituano</option>
+                    <option value="lb">Luxemburguês</option>
+                    <option value="mk">Macedônio</option>
+                    <option value="ml">Malaiala</option>
+                    <option value="ms">Malaio</option>
+                    <option value="mg">Malgaxe</option>
+                    <option value="mt">Maltês</option>
+                    <option value="mi">Maori</option>
+                    <option value="mr">Marata</option>
+                    <option value="mn">Mongol</option>
+                    <option value="ne">Nepalês</option>
+                    <option value="no">Norueguês</option>
+                    <option value="or">Oriá</option>
+                    <option value="ps">Pachto</option>
+                    <option value="fa">Persa</option>
+                    <option value="pl">Polonês</option>
+                    <option value="pa">Punjabi</option>
+                    <option value="ky">Quirguiz</option>
+                    <option value="ro">Romeno</option>
+                    <option value="ru">Russo</option>
+                    <option value="sm">Samoano</option>
+                    <option value="sr">Sérvio</option>
+                    <option value="st">Sessoto</option>
+                    <option value="sd">Sindi</option>
+                    <option value="so">Somali</option>
+                    <option value="sw">Suaíle</option>
+                    <option value="sv">Sueco</option>
+                    <option value="su">Sundanês</option>
+                    <option value="tg">Tadjique</option>
+                    <option value="th">Tailandês</option>
+                    <option value="ta">Tâmil</option>
+                    <option value="tt">Tártaro</option>
+                    <option value="cs">Tcheco</option>
+                    <option value="te">Telugo</option>
+                    <option value="tr">Turco</option>
+                    <option value="tk">Turcomano</option>
+                    <option value="uk">Ucraniano</option>
+                    <option value="ug">Uigur</option>
+                    <option value="ur">Urdu</option>
+                    <option value="uz">Uzbeque</option>
+                    <option value="vi">Vietnamita</option>
+                    <option value="xh">Xhosa</option>
+                    <option value="zu">Zulu</option>
+                </select></div>Powered by <span style="white-space:nowrap"><a class="goog-logo-link"
+                    href="https://translate.google.com" target="_blank"><img
+                        src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png"
+                        width="37px" height="14px" style="padding-right: 3px" alt="Google Tradutor">Tradutor</a></span>
+        </div>
+    </div> -->
+    <script type="text/javascript">
+        function googleTranslateElementInit2() { new google.translate.TranslateElement({ pageLanguage: 'pt', autoDisplay: false }, 'google_translate_element2'); }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        eval(function (p, a, c, k, e, r) { e = function (c) { return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('6 7(a,b){n{4(2.9){3 c=2.9("o");c.p(b,f,f);a.q(c)}g{3 c=2.r();a.s(\'t\'+b,c)}}u(e){}}6 h(a){4(a.8)a=a.8;4(a==\'\')v;3 b=a.w(\'|\')[1];3 c;3 d=2.x(\'y\');z(3 i=0;i<d.5;i++)4(d[i].A==\'B-C-D\')c=d[i];4(2.j(\'k\')==E||2.j(\'k\').l.5==0||c.5==0||c.l.5==0){F(6(){h(a)},G)}g{c.8=b;7(c,\'m\');7(c,\'m\')}}', 43, 43, '||document|var|if|length|function|GTranslateFireEvent|value|createEvent||||||true|else|doGTranslate||getElementById|google_translate_element2|innerHTML|change|try|HTMLEvents|initEvent|dispatchEvent|createEventObject|fireEvent|on|catch|return|split|getElementsByTagName|select|for|className|goog|te|combo|null|setTimeout|500'.split('|'), 0, {}))
+    /* ]]> */
+    </script>
+    <script>
+        gtag('event', 'page_view', {
+            'send_to': 'AW-10793611814',
+            'value': 'replace with value',
+            'items': [{
+                'id': 'replace with value',
+                'location_id': 'replace with value',
+                'google_business_vertical': 'custom'
+            }]
+        });
+    </script>
+
+    <div class="backdrop"></div>
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="navigation"><a href="https://www.fockink.ind.br" class="top"></a><a
+                    class="navigation__toggle"><span></span><span></span><span></span></a>
+                <ul class="navigation__list">
+                    <!-- botao empresas do menu -->
+                    <li class="navigation__list__item "><a href="https://www.fockink.ind.br/empresa">Empresa</a></li>
+                    <!-- botao equipamenos do menu -->
+                    <li class="navigation__list__item "><a>Equipamentos
+                            <img src="https://www.fockink.ind.br/assets/images/icons/ico-arrow-.svg"
+                                class="arrow-right"></a>
+                        <div class="navigation__menu">
+                            <div class="container"><a class="arrow-left">
+                                    <img
+                                        src="https://www.fockink.ind.br/assets/images/icons/ico-arrow-left.svg">Voltar</a>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-irrigacao.svg"><span
+                                                style="color:#2b8244">Sistemas de Irrigação</span>
+                                        </h5>
+                                    </li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/equipamentos/pivo-essencial">Pivô
+                                            Essencial</a></li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/equipamentos/pivo-super">Pivô Super</a>
+                                    </li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/equipamentos/pivo-supremo">Pivô Supremo</a>
+                                    </li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/equipamentos/pivo-max-12">Pivô Max 12</a>
+                                    </li>
+                                </ul>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-fotovoltaica.svg"><span
+                                                style="color:#72AB71">Sistemas de Geração Fotovoltaica</span>
+                                        </h5>
+                                    </li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/equipamentos/geracao-fotovoltaica">Simulador
+                                            de Geração Fotovoltaica</a></li>
+                                </ul>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-termometria.svg"><span
+                                                style="color:#00907A">Sistemas de Termometria e Aeração</span>
+                                        </h5>
+                                    </li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/equipamentos/termometria-e-aeracao">Termometria
+                                            e Aeração</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- botão soluções do menu -->
+                    <li class="navigation__list__item "><a>Soluções
+                            <img src="https://www.fockink.ind.br/assets/images/icons/ico-arrow-.svg"
+                                class="arrow-right"></a>
+                        <div class="navigation__menu">
+                            <div class="container"><a class="arrow-left">
+                                    <img
+                                        src="https://www.fockink.ind.br/assets/images/icons/ico-arrow-left.svg">Voltar</a>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-paineis-eletricos.svg"><a
+                                                href="https://www.fockink.ind.br/solucoes/paineis-eletricos-automacao"><span
+                                                    style="color:#0BA8DA">Painéis Elétricos e Automação</span></a>
+                                        </h5>
+                                    </li>
+                                </ul>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-eletromecanicas.svg"><a
+                                                href="https://www.fockink.ind.br/solucoes/instalacoes-eletromec%C3%A2nicas"><span
+                                                    style="color:#2080B9">Instalações Eletromecânicas</span></a>
+                                        </h5>
+                                    </li>
+                                </ul>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-paineis-caixas.svg"><a
+                                                href="https://www.fockink.ind.br/solucoes/paineis-e-caixas-metalicas-vazias"><span
+                                                    style="color:#0075FF">Painéis e Caixas Metálicas Vazias</span></a>
+                                        </h5>
+                                    </li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/solucoes/linha/paineis-vazios">PAINÉIS
+                                            VAZIOS</a></li>
+                                    <li class="navigation__menu__list__item"><a
+                                            href="https://www.fockink.ind.br/solucoes/linha/caixas-vazias">CAIXAS
+                                            VAZIAS</a></li>
+                                </ul>
+                                <ul class="navigation__menu__list">
+                                    <li class="navigation__menu__list__item">
+                                        <h5>
+                                            <img
+                                                src="https://www.fockink.ind.br/assets/images/home/ico-subestacoes.svg"><a
+                                                href="https://www.fockink.ind.br/solucoes/subestacoes"><span
+                                                    style="color:#00A7BA">Substações</span></a>
+                                        </h5>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navigation__list__item "><a
+                            href="https://www.fockink.ind.br/representantes">Representantes</a></li>
+                    <li class="navigation__list__item "><a href="https://www.fockink.ind.br/assistencia">Assistência
+                            Técnica</a></li>
+                    <li class="navigation__list__item "><a href="https://www.fockink.ind.br/blog">Blog</a></li>
+                    <li class="navigation__list__item"><a href="http://curriculoweb.fockink.ind.br"
+                            target="_blank">Trabalhe Conosco</a></li>
+                    <li class="navigation__list__item "><a href="https://www.fockink.ind.br/contato">Contato</a></li>
+                    <li class="navigation__list__item"><select id="language" onchange="doGTranslate(this);"
+                            class="language">
+                            <option value=""></option>
+                            <option value="pt|en">EN</option>
+                            <option value="pt|es">ES</option>
+                            <option value="pt|pt">PT BR</option>
+                        </select></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="search">
+        <a class="search__close">
+            <img src="https://www.fockink.ind.br/assets/images/icons/ico-close.svg"></a>
+        <div class="search__input">
+            <input placeholder="Faça sua busca" class="search__input__text">
+            <button class="search__input__button">
+                <img src="https://www.fockink.ind.br/assets/images/icons/ico-lupa2.svg"></button>
+        </div>
+    </div>
+
+
+    <main id="solucoes" class="main">
+        <div class="banner">
+            <!-- aqui tem a umagem de fundo do cabeçalho  -->
+            <div class="banner__item"
+                style="background-image:url('https://greensmarteco.com/wp-content/uploads/2020/07/solar-energy-collectors-photovoltaic-system-pv-1.jpg')">
+                <div class="container">
+                    <div class="banner__item__content">
+                        <h3 class="banner__item__title">
+                            Simulador de Geração Fotovoltaica
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alinhamento">
+                <div class="">
+                    <div class="">
+                        <div class="borda">
+
+                            <div class="borda">
+                                <div class="">
+                                    <h5>1.Local da instalação</h5>
+                                    <label>CEP:</label><br>
+                                    <input class="form-control" type="text" id="cep" name="message" oninput="getCEP();"
+                                        value="" placeholder="CEP do local" required>
+                                    <br>
+                                    <label>Localidade:</label><br>
+                                    <div id="localidade"></div>
+                                </div>
+                            </div>
+
+                            <!-- <form action="https://formsubmit.co/c732a0955f8129a10f14e8499427b401" method="POST"> -->
+                            <div class="borda">
+                                <h5>2.Qual tipo de local?</h5>
+                                <select name="message" id="local" class="btn btn-danger" on-Change="combo(this, 'box)">
+                                    <option value="empresa" selected>empresa</option>
+                                    <option value="outro">outro</option>
+                                </select>
+                            </div>
+                            <div class="borda">
+                                <h5>3. Local com rede elétrica?</h5>
+
+                                <select name="message" id="redeEletrica" class="btn btn-danger">
+                                    <option value="sim" selected>Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+                            </div>
+                            <!--com o cep é possóvel identificar a cidade, e também é possível ver em uma Database a irradiação solar-->
+
+                            <div class="borda">
+                                <h5>4.Quanto gasta por mês?</h5>
+                                <label>R$:</label><br>
+                                <span class="input-euro left" type="text" id="gastoMensal" name="message">
+                                    <input class="form-control " name="message" id="contaMes" type="text"
+                                        placeholder="2000" />
+                                </span>
+                            </div>
+
+                            <div class="borda">
+                                <h5>5.Qual o valor da tarifa paga ?</h5>
+                                <input class="form-control" name="message" id="tarifa" type="text" placeholder="0.58"
+                                     />
+                            </div>
+                            <div class="borda">
+                                <!-- <h5>6.Quantos kWp/h são consumidos</h5>
+                                <input class="form-control " name="message" id="kwpConsumo" type="text"
+                                    placeholder="3.389" value="3.389" /> -->
+
+                                <h5>Informações para contato</h5>
+                                <div>
+                                    <label>Nome Completo</label>
+                                    <input type="text" name="name" id="nomeCompleto" class="form-control "
+                                        placeholder="Nome e Sobrenome"><br>
+                                </div>
+
+                                <div>
+                                    <label>Telefone de contato</label>
+                                    <input type="text" name="message" id="telefoneContato" class="form-control "
+                                        placeholder="(55) 9 0000-0000"><br>
+                                </div>
+
+                                <div>
+                                    <label>E-MAIL</label><br>
+                                    <input type="email" name="email" id="email" class="form-control "
+                                        placeholder="nome@email.com"><br>
+                                </div>
+
+                                <button class="btn btn-danger btn-lg btn-block" onclick="maeFunction() ">Simule
+                                    Agora</button>
+                                </form>
+                                <div class="borda6">
+                                    <div class="">
+                                        <div class="col-xs-12 col-lg-12">
+                                            <div class="row space">
+                                                <div class='grid' id="resultado2" name="resultado2">
+                                                </div>
+                                                <!--Aqui está chamando o grid com as informações-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
