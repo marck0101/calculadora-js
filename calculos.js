@@ -44,6 +44,7 @@ function captApresenta(
   var email = document.getElementById("email").value;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if (cep.length > 7) {
     // console.log("o cep é " + cep)
   }
@@ -60,6 +61,11 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
     var telefoneContato = document.getElementById("telefoneContato").value;
     var email = document.getElementById("email").value;
 >>>>>>> c7af50444aa5e8380f5a829b9f47a1c16a3fe7a3
+=======
+  if (cep.length > 7) {
+    // console.log("o cep é " + cep)
+  }
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
 
   //  if(localidade === retorno.localidade){
   //      console.log("A localidade é "+ retorno.localidade)
@@ -78,6 +84,9 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
   if (contaMes > 0) {
     console.log("O valor da conta mensal é " + contaMes);
     if (tarifa >= 0) {
@@ -90,6 +99,7 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
             console.log("telefone do possível Cliente: " + telefoneContato);
             if ((email != undefined) & (email != "")) {
               console.log("email do Cliente: " + email);
+<<<<<<< HEAD
 =======
     if (redeEletrica === "sim") {
 
@@ -122,6 +132,8 @@ function captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsum
                     }
                 }
 >>>>>>> c7af50444aa5e8380f5a829b9f47a1c16a3fe7a3
+=======
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
             }
           }
         }
@@ -154,9 +166,12 @@ function irradJson(endereco) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> c7af50444aa5e8380f5a829b9f47a1c16a3fe7a3
+=======
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
 function consumoMensal() {
   console.log("entrou na funcao consumoMensal");
   var contaMes = document.getElementById("contaMes").value;
@@ -213,10 +228,14 @@ function energiaGeradaAno(indIrrad, potenciaPico) {
 
 function energiaGeradaMes(geracaoAno) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
   var geracaoMes = "";
   geracaoMes = geracaoAno / 12;
   console.log("A geracao de energia mensal é ", geracaoMes);
   return geracaoMes;
+<<<<<<< HEAD
 =======
     var geracaoMes = "";
     geracaoMes = geracaoAno / 12
@@ -272,12 +291,57 @@ function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
 <<<<<<< HEAD
   document.getElementById("resultado2").innerHTML = exibe;
 =======
-function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
-    exibe =
-        // "<div>" +
-        // "<div>" + cm + "</div> <!--1-->" +
-        // "</div><br>" +
+=======
+}
 
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
+function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
+  exibe =
+    "<div class='borda4'>" +
+    " <div class='row'>" +
+    " <div class='col'>" +
+    " <div class='borda3'>" +
+    "<h5>Consumo mensal é:</h5>" +
+    cm.toFixed(2) +
+    "<h5>kWh</h5>" +
+    " </div>" +
+    " </div>" +
+    " <div class='col'>" +
+    " <div class='borda3'>" +
+    "<h5>Potencia Pico:</h5>" +
+    potenciaPico.toFixed(2) +
+    "<h5>kWh</h5>" +
+    "</div>" +
+    " </div>" +
+    " <div class='col'>" +
+    "<div class='borda3'>" +
+    "<h5>Área estimada:</h5>" +
+    areaSistema.toFixed(2) +
+    "<h5>m²</h5>" +
+    " </div>" +
+    "</div>" +
+    "</div>" +
+    " <div class=''>" +
+    "<div class='row'>" +
+    "<div class='col'>" +
+    " <div class='borda3'>" +
+    "<h5>Energia gerada no mês:</h5>" +
+    geracaoMes.toFixed(2) +
+    "<h5>kWh</h5>" +
+    "</div>" +
+    "</div>" +
+    "<div class='col'>" +
+    "<div class='borda3'>" +
+    "<h5>Energia gerada Ano:</h5>" +
+    geracaoAno.toFixed(2) +
+    "<h5>kWh</h5>" +
+    " </div>" +
+    "</div>" +
+    "</div>" +
+    " </div>" +
+    "</div>";
+
+<<<<<<< HEAD
         // "<div>" +
         // "<div>" + potenciaPico + "</div> <!--2-->" +
         // "</div><br>" +
@@ -341,6 +405,12 @@ function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
 
 function maeFunction() {
 <<<<<<< HEAD
+=======
+  document.getElementById("resultado2").innerHTML = exibe;
+}
+
+function maeFunction() {
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
   console.log("entrou na funcao maeFunction");
   //vai retornar a localidade e armazenar na variavel endereco
   var endereco = getCEP();
@@ -351,6 +421,7 @@ function maeFunction() {
   //pico sistema retorna um resultado que é armazenado dentro de potenciaPico
   var potenciaPico = picoSistema(indIrrad, cm);
   // console.log(areaEstimada(potenciaPico));
+<<<<<<< HEAD
 
   // a area estimada precisa da potenciaPico para calcular
   var areaSistema = areaEstimada(potenciaPico);
@@ -387,19 +458,32 @@ function maeFunction() {
     //pico sistema retorna um resultado que é armazenado dentro de potenciaPico
     var potenciaPico = picoSistema(indIrrad, cm);
     // console.log(areaEstimada(potenciaPico));
+=======
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
 
-    // a area estimada precisa da potenciaPico para calcular
-    var areaSistema = areaEstimada(potenciaPico)
+  // a area estimada precisa da potenciaPico para calcular
+  var areaSistema = areaEstimada(potenciaPico);
 
-    // var areaSistema = areaEstimada();
+  // var areaSistema = areaEstimada();
 
-    //aqui retorna geração ano, e para calcular é preciso de indIrrad, potenciaPico
-    var geracaoAno = energiaGeradaAno(indIrrad, potenciaPico);
-    //vai retornar geracaoMes, mas precisa de geracaoAno para calcular
-    var geracaoMes = energiaGeradaMes(geracaoAno);
+  //aqui retorna geração ano, e para calcular é preciso de indIrrad, potenciaPico
+  var geracaoAno = energiaGeradaAno(indIrrad, potenciaPico);
+  //vai retornar geracaoMes, mas precisa de geracaoAno para calcular
+  var geracaoMes = energiaGeradaMes(geracaoAno);
 
-    captApresenta(cep, localidade, redeEletrica, local, contaMes, kwpConsumo, nomeCompleto, telefoneContato, email);
+  captApresenta(
+    cep,
+    localidade,
+    redeEletrica,
+    local,
+    contaMes,
+    // kwpConsumo,
+    nomeCompleto,
+    telefoneContato,
+    email
+  );
 
+<<<<<<< HEAD
     //exibe grid, mas para isso precisa => ()
     exibeGrid(cm,
         potenciaPico,
@@ -407,4 +491,8 @@ function maeFunction() {
         geracaoMes,
         geracaoAno);
 >>>>>>> c7af50444aa5e8380f5a829b9f47a1c16a3fe7a3
+=======
+  //exibe grid, mas para isso precisa => ()
+  exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno);
+>>>>>>> e4c59318218f4595607fb4ef0011f08854795674
 }
