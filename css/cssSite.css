@@ -183,6 +183,47 @@
   padding-top: 20px;
 }
 
+<<<<<<< HEAD
+=======
+/* Daqui para baixo não é meu não kkkk          */
+.borda3 {
+  background-color: #dc3545;
+  text-align: center;
+  padding-top: 5px;
+  margin: 5px;
+  height: "100";
+  width: "50%";
+  color: white;
+}
+
+.borda4 {
+  /* background-color: #ffffff; */
+  background-color: #fff;
+  text-align: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 4px;
+  padding-right: 5px;
+  margin: 5px;
+  border: #000;
+  display: flexbox;
+  align-content: stretch;
+}
+
+@media (max-width: 500px) {
+  .borda4,
+  .borda3 {
+    /* background-color: #008b8b; */
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: space-around; */
+  }
+}
+
+>>>>>>> 1cf504c4a5c688284d70e37f10c9edb2e7c967ce
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   :root {
