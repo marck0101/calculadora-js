@@ -5,7 +5,7 @@
 
   /* flex-direction: row; */
   /* flex-wrap: nowrap; */
-  /* justify-content: space-around; */
+  justify-content: center;
   align-items: stretch;
 }
 
@@ -28,4 +28,56 @@
   display: flex;
   background-color: blue;
   width: 75px;
+}
+
+/* ---------------------------------------------- */
+
+/* .teste-mae {
+  display: flex;
+  background-color: green;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+} */
+
+.teste-conteiner {
+  display: flex;
+  padding: 1%;
+  flex-wrap: wrap;
+  height: 90%;
+  /* width: 95%; */
+  border: 5px solid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+  flex-direction: row;
+  /* align-content: stretch; */
+}
+
+.teste-item1 {
+  display: flex;
+  background-color: red;
+  color: white;
+  padding: 30px;
+  align-content: stretch;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px;
+  /* width: 20%; */
+  /* justify-content: space-between; */
+  /* justify-content: center; */
+}
+.teste-item2 {
+  display: flex;
+  background-color: blue;
+  color: white;
+  padding: 30px;
+  align-content: stretch;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  /* justify-content: space-between; */
+  justify-content: center;
+
+  /* width: 20%; */
 }
