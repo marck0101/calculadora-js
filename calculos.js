@@ -172,21 +172,21 @@ function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
   // "<div class='borda4'>"+
   "<div class='row'>"+
       "<div class='col'>"+
-          "<div class='borda5'>"+
+          "<div class='teste-item1'>"+
               "<h5>Consumo mensal é:</h5>"+
               cm.toFixed(2)+" kWh" +
               // "<h5>kWh</h5>"+
           "</div>"+
       "</div>"+
       "<div class='col'>"+
-          "<div class='borda5'>"+
+          "<div class='teste-item1'>"+
               "<h5>Potencia Pico:</h5>"+
                potenciaPico.toFixed(2) +" kWh" +
               // "<h5>kWh</h5>"+
           "</div>"+
       "</div>"+
       "<div class='col'>"+
-          "<div class='borda5'>"+
+          "<div class='teste-item1'>"+
               "<h5>Área estimada:</h5>"+
               areaSistema.toFixed(2) +" m²" +
               // "<h5>m²</h5>"+
@@ -196,14 +196,14 @@ function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
   "<div class=''>"+
       "<div class='row'>"+
           "<div class='col'>"+
-              "<div class='borda5'>"+
+              "<div class='teste-item1'>"+
                   "<h5>Energia gerada no mês:</h5>"+
                   geracaoMes.toFixed(2)+ " kWh" +
                   // "<h5>kWh</h5>"+
               "</div>"+
           "</div>"+
           "<div class='col'>"+
-              "<div class='borda5'>"+
+              "<div class='teste-item1'>"+
                   "<h5>Energia gerada Ano:</h5>"+
                   geracaoAno.toFixed(2) + " kWh" +
                   // "<h5>kWh</h5>"+

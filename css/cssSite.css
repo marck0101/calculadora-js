@@ -34,6 +34,11 @@
   --gutter: 15px;
 }
 
+.borda {
+  margin-top: 3% !important;
+  /* background-color: #00907a; */
+}
+
 .borda3 {
   background-color: #dc3545;
   text-align: center;
@@ -104,6 +109,60 @@
     background-color: #005cbf;
     align-items: center;
   }
+}
+
+.teste-conteiner {
+  display: flex;
+  padding: 1%;
+  flex-wrap: wrap;
+  height: 90%;
+  /* width: 95%; */
+  border: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  flex-direction: row;
+  border-radius: 15px;
+  /* align-content: stretch; */
+}
+
+.teste-item1 {
+  display: flex;
+  background-color: #72ab71;
+  color: white;
+  padding: 30px;
+  align-content: stretch;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px;
+  border-radius: 15px;
+  /* width: 20%; */
+  /* justify-content: space-between; */
+  /* justify-content: center; */
+}
+.teste-item2 {
+  display: flex;
+  background-color: blue;
+  color: white;
+  padding: 30px;
+  align-content: stretch;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  /* justify-content: space-between; */
+  justify-content: center;
+
+  /* width: 20%; */
+}
+
+.tamanho-icon {
+  height: 50px;
+  width: 50px;
+  /* color: #4d4d4d; */
+}
+
+.espacamento {
+  margin-left: 15px;
 }
 
 /* // Small devices (landscape phones, 576px and up) */
@@ -183,8 +242,6 @@
   padding-top: 20px;
 }
 
-<<<<<<< HEAD
-=======
 /* Daqui para baixo não é meu não kkkk          */
 .borda3 {
   background-color: #dc3545;
@@ -209,21 +266,21 @@
   display: flexbox;
   align-content: stretch;
 }
-
+/* 
 @media (max-width: 500px) {
   .borda4,
   .borda3 {
-    /* background-color: #008b8b; */
+    background-color: #008b8b;
     width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: space-around; */
+    align-items: center;
+    justify-content: space-around;
   }
 }
+ */
 
->>>>>>> 1cf504c4a5c688284d70e37f10c9edb2e7c967ce
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   :root {
