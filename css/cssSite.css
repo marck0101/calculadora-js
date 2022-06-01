@@ -240,6 +240,18 @@
   margin-top: 20px;
   border: 5px;
   padding-top: 20px;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+@media (max-width: 570px) {
+  .alinhamento {
+    margin: 50px;
+    margin-top: 20px;
+    border: 5px;
+    padding-top: 20px;
+    padding-right: 2%;
+    padding-left: 2%;
+  }
 }
 
 /* Daqui para baixo não é meu não kkkk          */
@@ -349,13 +361,6 @@
 
 .col-2 {
   flex-grow: 0;
-}
-
-.alinhamento {
-  margin: 50px;
-  margin-top: 20px;
-  border: 5px;
-  padding-top: 20px;
 }
 
 /* Daqui para baixo não é meu não kkkk          */

@@ -483,75 +483,78 @@
                             </div>
 
                             <!-- <form action="https://formsubmit.co/c732a0955f8129a10f14e8499427b401" method="POST"> -->
-                            <div class="borda">
-                                <h5>2.Qual tipo de local?</h5>
-                                <select name="message" id="local" class="btn btn-danger" on-Change="combo(this, 'box)">
-                                    <option value="empresa" selected>Empresa</option>
-                                    <option value="outro">Outro</option>
-                                </select>
-                            </div>
-                            <div class="borda">
-                                <h5>3. Local com rede elétrica?</h5>
-
-                                <select name="message" id="redeEletrica" class="btn btn-danger">
-                                    <option value="sim" selected>Sim</option>
-                                    <option value="nao">Não</option>
-                                </select>
-                            </div>
-                            <!--com o cep é possóvel identificar a cidade, e também é possível ver em uma Database a irradiação solar-->
-
-                            <div class="borda">
-                                <h5>4.Quanto gasta por mês?</h5>
-                                <label>R$:</label><br>
-                                <span class="input-euro left" type="text" id="gastoMensal" name="message">
-                                    <input class="form-control " name="message" id="contaMes" type="text"
-                                        placeholder="2000" />
-                                </span>
-                            </div>
-
-                            <div class="borda">
-                                <h5>5.Qual o valor da tarifa paga ?</h5>
-                                <input class="form-control" name="message" id="tarifa" type="text" placeholder="0.58"
-                                     />
-                            </div>
-                            <div class="borda">
-                                <!-- <h5>6.Quantos kWp/h são consumidos</h5>
-                                <input class="form-control " name="message" id="kwpConsumo" type="text"
-                                    placeholder="3.389" value="3.389" /> -->
-
-                                <h5>Informações para contato</h5>
-                                <div>
-                                    <label>Nome Completo</label>
-                                    <input type="text" name="name" id="nomeCompleto" class="form-control "
-                                        placeholder="Nome e Sobrenome"><br>
+                                <div class="borda">
+                                    <h5>2.Tipo de instalação</h5>
+                                    <select name="message" id="local" class="btn btn-danger" on-Change="combo(this, 'box)">
+                                        <option value="empresa" selected>Empresa</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
                                 </div>
 
-                                <div>
-                                    <label>Telefone de contato</label>
-                                    <input type="text" name="message" id="telefoneContato" class="form-control "
-                                        placeholder="(55) 9 0000-0000"><br>
+                                <div class="borda">
+                                    <h5>3. Local com rede elétrica?</h5>
+    
+                                    <select name="message" id="redeEletrica" class="btn btn-danger">
+                                        <option value="sim" selected>Sim</option>
+                                        <option value="nao">Não</option>
+                                    </select>
                                 </div>
-
-                                <div>
-                                    <label>E-MAIL</label><br>
-                                    <input type="email" name="email" id="email" class="form-control "
-                                        placeholder="nome@email.com"><br>
+                                <!--com o cep é possóvel identificar a cidade, e também é possível ver em uma Database a irradiação solar-->
+    
+                                <div class="borda">
+                                    <h5>4.Quanto gasta por mês?</h5>
+                                    <label>R$:</label><br>
+                                    <span class="input-euro left" type="text" id="gastoMensal" name="message">
+                                        <input class="form-control " name="message" id="contaMes" type="text"
+                                            placeholder="2000" value="2000" />
+                                    </span>
                                 </div>
-
-                                <button class="btn btn-danger btn-lg btn-block" onclick="maeFunction() ">Simule
-                                    Agora</button>
-                                </form>
-                                <div class="borda6">
-                                    <div class="">
-                                        <div class="col-xs-12 col-lg-12">
-                                            <div class="row space">
-                                                <div class='grid' id="resultado2" name="resultado2">
-                                                </div>
+    
+                                <div class="borda">
+                                    <h5>5.Qual o valor da tarifa paga ?</h5>
+                                    <input class="form-control" name="message" id="tarifa" type="text" placeholder="0.58" value="0.58"
+                                         />
+                                </div>
+                                <div class="borda">
+                                    <!-- <h5>6.Quantos kWp/h são consumidos</h5>
+                                    <input class="form-control " name="message" id="kwpConsumo" type="text"
+                                        placeholder="3.389" value="3.389" /> -->
+    
+                                    <h5>Informações para contato</h5>
+                                    <div>
+                                        <label>Nome Completo</label>
+                                        <input type="text" name="name" id="nomeCompleto" class="form-control "
+                                            placeholder="Nome e Sobrenome" value="Nome e Sobrenome"><br>
+                                    </div>
+    
+                                    <div>
+                                        <label>Telefone de contato</label>
+                                        <input type="text" name="message" id="telefoneContato" class="form-control "
+                                            placeholder="(55) 9 0000-0000" value="(55) 9 0000-0000"><br>
+                                    </div>
+    
+                                    <div>
+                                        <label>E-MAIL</label><br>
+                                        <input type="email" name="email" id="email" class="form-control "
+                                            placeholder="nome@email.com" value="nome@email.com"><br>
+                                    </div>
+                                    <a  href="#teste">
+                                    <button class="btn btn-danger btn-lg btn-block"  onclick="maeFunction() ">
+                                        Simule Agora</button>
+                                        </a>
+                                    </form>
+                                    <div class="borda4">
+                                        <div class="">
+                                            <div class="col-xs-12 col-lg-12">
+                                                <div class="row space">
+                                                    <div class='grid' id="resultado2" name="resultado2">
+                                                    </div>
                                                 <!--Aqui está chamando o grid com as informações-->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <h1><a id="teste">teste</a></h1> -->
                             </div>
                         </div>
                     </div>
