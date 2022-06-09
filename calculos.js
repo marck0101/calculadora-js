@@ -170,7 +170,7 @@ function energiaGeradaMes(geracaoAno) {
 
 function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
   exibe =
-    // "<div class='borda4'>"+
+    "<div class='borda4'>"+
     "<div class='row'>" +
     "<div class='col'>" +
     "<div class='teste-item1'>" +
@@ -301,6 +301,48 @@ function exibeGrid(cm, potenciaPico, areaSistema, geracaoMes, geracaoAno) {
     "</div>" +
     "</div>";
   // "</div>";
+  
+//...
+//   `
+// <div class="">
+
+// <div class="teste-item1">
+// <img src="https://img.icons8.com/ios/50/undefined/light-automation.png"/>
+// <div class="alinhamento">
+// <h5>Consumo mensal médio considerado: ${cm.toFixed(2)} kWh<h5/>
+// </div>
+// </div>
+
+// <div class="teste-item1">
+// <img src="https://img.icons8.com/ios/50/undefined/lightning-bolt--v1.png"/>
+// <div class="alinhamento">
+// <h5 class='espacamento'>Potencia Pico: ${potenciaPico.toFixed(2)} kWp</h5>
+// </div>
+// </div>
+
+// <div class="teste-item1">
+// <img src="https://img.icons8.com/external-others-phat-plus/64/undefined/external-area-analytics-outline-others-phat-plus.png"/>
+// <div class="alinhamento">
+// <h5>Consumo mensal médio considerado:${areaSistema.toFixed(2)} m²<h5/>
+// </div>
+// </div>
+
+// <div class="teste-item1"> <a id='teste'></a>
+// <img src="https://img.icons8.com/external-out-line-pongsakorn-tan/64/undefined/external-solar-ecology-and-pollution-out-line-pongsakorn-tan.png"/>
+// <div class="alinhamento">
+// <h5>Consumo mensal médio considerado:${geracaoMes.toFixed(2)} kWh<h5/>
+// </div>
+// </div>
+
+// <div class="teste-item1">
+// <img src="https://img.icons8.com/wired/64/undefined/sustainable-energy.png"/>
+// <div class="alinhamento">
+// <h5>Consumo mensal médio considerado:${geracaoAno.toFixed(2)} kWh<h5/>
+// </div>
+// </div>
+
+// </div>
+// `
 
   document.getElementById("resultado2").innerHTML = exibe;
 }
